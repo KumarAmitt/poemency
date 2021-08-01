@@ -9,11 +9,10 @@ const PoetryDetails = ({ match }) => {
 
   const dispatch = useDispatch();
   const poem = useSelector(getSinglePoetries);
+
   useEffect(() => {
     dispatch(loadSinglePoetry(title));
   }, []);
-
-  console.log(poem);
 
   return (
     <>
@@ -29,7 +28,7 @@ const PoetryDetails = ({ match }) => {
             <p>{p.lines}</p>
           </div>
         ))
-      }
+       }
     </>
   );
 };

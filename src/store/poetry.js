@@ -91,3 +91,7 @@ export const getSinglePoetries = createSelector(
     (single) => single,
 );
 
+export const getTitles = createSelector(
+    (state) => state.entities.poetry.title,
+    (title) => title,
+);

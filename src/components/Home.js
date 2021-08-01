@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { getRandomPoetries, random20 } from '../store/poetry';
+import Filter from './Filter';
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -14,6 +15,7 @@ const Home = () => {
 
   return (
     <>
+      <Filter />
       <table>
         <thead>
           <tr>

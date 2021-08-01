@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { getRandomPoetries, random20 } from '../store/poetry';
+import {
+  getRandomPoetries, loadMatchPoetry, random20, loadPoetryByAuthor,
+} from '../store/poetry';
 import Filter from './Filter';
 
 const Home = () => {
@@ -13,9 +15,16 @@ const Home = () => {
 
   const poetries = useSelector(getRandomPoetries);
 
+  function handleChange(filter) {
+    dispatch(loadMatchPoetry(filter));
+  }
+  function handleAuthor(filter) {
+    dispatch(loadPoetryByAuthor(filter));
+  }
+
   return (
     <>
-      <Filter />
+      <Filter filterChange={handleChange} filterAuthor={handleAuthor} />
       <table>
         <thead>
           <tr>

@@ -79,6 +79,20 @@ export const loadSinglePoetry = (title) => apiCallBegan({
   onError: poetryRequestFailed.type,
 });
 
+export const loadMatchPoetry = (title) => apiCallBegan({
+  url: `/title/${title}`,
+  onStart: poetryRequested.type,
+  onSuccess: randomPoetryReceived.type,
+  onError: poetryRequestFailed.type,
+});
+
+export const loadPoetryByAuthor = (author) => apiCallBegan({
+  url: `/author/${author}`,
+  onStart: poetryRequested.type,
+  onSuccess: randomPoetryReceived.type,
+  onError: poetryRequestFailed.type,
+});
+
 // SELECTOR
 
 export const getRandomPoetries = createSelector(
@@ -94,4 +108,9 @@ export const getSinglePoetries = createSelector(
 export const getTitles = createSelector(
     (state) => state.entities.poetry.title,
     (title) => title,
+);
+
+export const getAuthors = createSelector(
+    (state) => state.entities.poetry.author,
+    (author) => author,
 );

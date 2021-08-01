@@ -9,6 +9,7 @@ const slice = createSlice({
     title: [],
     author: [],
     random20: [],
+    single: [],
     loading: false,
   },
   reducers: {
@@ -27,6 +28,10 @@ const slice = createSlice({
       state.random20 = action.payload;
       state.loading = false;
     },
+    singlePoetryReceived: (state, action) => {
+      state.single = action.payload;
+      state.loading = false;
+    },
     poetryRequestFailed: (state, action) => {
       state.loading = false;
     },
@@ -39,6 +44,7 @@ export const {
   poetryAuthorsReceived,
   randomPoetryReceived,
   poetryRequestFailed,
+  singlePoetryReceived,
 } = slice.actions;
 
 export default slice.reducer;
@@ -60,9 +66,16 @@ export const loadAuthors = () => apiCallBegan({
 });
 
 export const random20 = () => apiCallBegan({
-  url: '/random/20',
+  url: '/random/20/title,author',
   onStart: poetryRequested.type,
   onSuccess: randomPoetryReceived.type,
+  onError: poetryRequestFailed.type,
+});
+
+export const loadSinglePoetry = (title) => apiCallBegan({
+  url: `/title/${title}:abs`,
+  onStart: poetryRequested.type,
+  onSuccess: singlePoetryReceived.type,
   onError: poetryRequestFailed.type,
 });
 
@@ -72,3 +85,9 @@ export const getRandomPoetries = createSelector(
   (state) => state.entities.poetry.random20,
   (random20) => random20,
 );
+
+export const getSinglePoetries = createSelector(
+    (state) => state.entities.poetry.single,
+    (single) => single,
+);
+

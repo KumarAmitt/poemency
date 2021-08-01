@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import poetryReducer from './poetry';
+import entityReducer from './entity';
 
 export default combineReducers({
-  poetry: poetryReducer,
+  entities: entityReducer,
 });

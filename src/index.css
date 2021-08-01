@@ -1,3 +1,10 @@
 body {
   color: #379a99;
 }
+
+table,
+thead,
+th,
+td {
+  border: 1px solid mediumvioletred;
+}

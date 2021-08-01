@@ -1,6 +1,7 @@
 import axios from 'axios';
 import * as actions from '../api';
 
+/* eslint-disable */
 const api = ({ dispatch }) => (next) => async (action) => {
   if (action.type !== actions.apiCallBegan.type) return next(action);
 
@@ -31,7 +32,6 @@ const api = ({ dispatch }) => (next) => async (action) => {
     // Specific
     if (onError) dispatch({ type: onError, payload: error.message });
   }
-  return 0;
 };
 
 export default api;

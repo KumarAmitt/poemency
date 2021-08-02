@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import uniqid from 'uniqid';
@@ -22,18 +22,10 @@ const PoetryDetails = ({ match }) => {
     dispatch(loadPoetryByAuthor(author));
   }, []);
 
-  const [poetry, setPoetry] = useState(poem);
-
   function renderPoetry(f) {
-    setPoetry({
-      title: f.title,
-      author: f.author,
-      lines: f.lines,
-      lineCount: f.linecount,
-    });
+    window.scrollTo(0, 0);
+    dispatch(loadSinglePoetry(f.title, f.author));
   }
-
-  console.log(poetry);
 
   return (
     <>
@@ -41,12 +33,12 @@ const PoetryDetails = ({ match }) => {
       <h1>Details Page</h1>
       <hr />
       <div>
-        <h3>{poetry.title || poem.title}</h3>
-        <h5>{poetry.author || poem.author}</h5>
-        <h6>{poetry.lineCount || poem.lineCount}</h6>
+        <h3>{poem.title}</h3>
+        <h5>{poem.author}</h5>
+        <h6>{poem.lineCount}</h6>
         <p>
           {
-            (poetry.lines || poem.lines).map((p) => (p === '' ? '---' : <pre key={uniqid()}>{p}</pre>))
+            poem.lines && poem.lines.map((p) => (p === '' ? '---' : <pre key={uniqid()}>{p}</pre>))
           }
         </p>
       </div>

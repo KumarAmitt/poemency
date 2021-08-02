@@ -34,14 +34,13 @@ const Filter = ({ filterChange, filterAuthor }) => {
       {/* </datalist> */}
 
       <select onChange={(e) => filterChange(e.target.value)}>
-        <option selected="true" disabled="disabled">--select by Title--</option>
+        {/* <option selected="true" disabled="disabled">--select by Title--</option> */}
         {
           titles.map((t) => (<option key={uniqid()} value={t}>{t}</option>))
         }
       </select>
 
       <select onChange={(e) => filterAuthor(e.target.value)}>
-        <option selected="true" disabled="disabled">--select by poet--</option>
         {
           authors.map((a) => (<option key={uniqid()} value={a}>{a}</option>))
         }

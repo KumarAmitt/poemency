@@ -25,7 +25,6 @@ const Filter = ({ filterChange, filterAuthor }) => {
       {/* <input */}
       {/*  type="text" */}
       {/*  list="title" */}
-      {/*  onChange={(e) => filterChange(e.target.value)} */}
       {/*  placeholder="Select Title" */}
       {/* /> */}
       {/* <datalist id="title"> */}

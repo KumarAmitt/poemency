@@ -9,7 +9,7 @@ const slice = createSlice({
     title: [],
     author: [],
     random20: [],
-    single: [],
+    single: {},
     loading: false,
   },
   reducers: {
@@ -29,7 +29,10 @@ const slice = createSlice({
       state.loading = false;
     },
     singlePoetryReceived: (state, action) => {
-      state.single = action.payload;
+      state.single.title = action.payload[0].title;
+      state.single.author = action.payload[0].author;
+      state.single.lines = action.payload[0].lines;
+      state.single.lineCount = action.payload[0].linecount;
       state.loading = false;
     },
     poetryRequestFailed: (state, action) => {
@@ -66,7 +69,7 @@ export const loadAuthors = () => apiCallBegan({
 });
 
 export const random20 = () => apiCallBegan({
-  url: '/random/20/title,author',
+  url: '/random/20/title,author,linecount',
   onStart: poetryRequested.type,
   onSuccess: randomPoetryReceived.type,
   onError: poetryRequestFailed.type,

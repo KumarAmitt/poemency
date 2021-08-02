@@ -31,6 +31,7 @@ const Home = () => {
           <tr>
             <th>Title</th>
             <th>Author</th>
+            <th>Lines</th>
             <th>Action</th>
           </tr>
         </thead>
@@ -40,6 +41,7 @@ const Home = () => {
               <tr key={uniqid()}>
                 <td>{p.title}</td>
                 <td>{p.author}</td>
+                <td>{p.linecount}</td>
                 <td>
                   <Link to={`/poetry/${p.title}/${p.author}`}>Details</Link>
                 </td>

@@ -27,15 +27,11 @@ const PoetryDetails = ({ match }) => {
       <h1>Details Page</h1>
       <h3>{title}</h3>
       <hr />
-      {
-        poem.map((p) => (
-          <div key={p.title}>
-            <h3>{p.title}</h3>
-            <h6>{p.author}</h6>
-            <p>{p.lines}</p>
-          </div>
-        ))
-       }
+      <div>
+        <h3>{poem.title}</h3>
+        <h5>{poem.author}</h5>
+        <p>{poem.lines}</p>
+      </div>
 
       <hr />
       <h3>From the same Author</h3>
@@ -47,7 +43,7 @@ const PoetryDetails = ({ match }) => {
             <hr />
           </div>
         ))
-      }
+       }
     </>
   );
 };

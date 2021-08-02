@@ -69,7 +69,7 @@ export const loadAuthors = () => apiCallBegan({
 });
 
 export const random20 = () => apiCallBegan({
-  url: '/random/20',
+  url: '/random/20/title,author,linecount',
   onStart: poetryRequested.type,
   onSuccess: randomPoetryReceived.type,
   onError: poetryRequestFailed.type,
@@ -117,8 +117,3 @@ export const getAuthors = createSelector(
     (state) => state.entities.poetry.author,
     (author) => author,
 );
-
-// export const getSinglePoetries2 = (title, author) => createSelector(
-//     (state) => state.entities.poetry.random20,
-//     (random20) => random20.filter(f => f.title === title && f.author === author),
-// );

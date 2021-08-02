@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import uniqid from 'uniqid';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   getRandomPoetries, getSinglePoetries, loadPoetryByAuthor, loadSinglePoetry,
@@ -28,6 +29,7 @@ const PoetryDetails = ({ match }) => {
       title: f.title,
       author: f.author,
       lines: f.lines,
+      lineCount: f.linecount,
     });
   }
 
@@ -39,9 +41,14 @@ const PoetryDetails = ({ match }) => {
       <h1>Details Page</h1>
       <hr />
       <div>
-        <h3>{poetry.title}</h3>
-        <h5>{poetry.author}</h5>
-        <p>{poetry.lines}</p>
+        <h3>{poetry.title || poem.title}</h3>
+        <h5>{poetry.author || poem.author}</h5>
+        <h6>{poetry.lineCount || poem.lineCount}</h6>
+        <p>
+          {
+            (poetry.lines || poem.lines).map((p) => (p === '' ? '---' : <pre key={uniqid()}>{p}</pre>))
+          }
+        </p>
       </div>
 
       <hr />
@@ -51,6 +58,7 @@ const PoetryDetails = ({ match }) => {
           <div key={f.title + f.author}>
             <p>{f.title}</p>
             <p>{f.author}</p>
+            <p>{f.linecount}</p>
             <Link to={`/poetry/${f.author}/${f.title}`} onClick={() => renderPoetry(f)}>Details</Link>
             <hr />
           </div>

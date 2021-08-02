@@ -2,16 +2,23 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
-import { getSinglePoetries, loadSinglePoetry } from '../store/poetry';
+import {
+  getRandomPoetries, getSinglePoetries, loadPoetryByAuthor, loadSinglePoetry,
+} from '../store/poetry';
 
 const PoetryDetails = ({ match }) => {
   const { params: { title, author } } = match;
 
   const dispatch = useDispatch();
   const poem = useSelector(getSinglePoetries);
+  const feat = useSelector(getRandomPoetries);
 
   useEffect(() => {
     dispatch(loadSinglePoetry(title, author));
+  }, []);
+
+  useEffect(() => {
+    dispatch(loadPoetryByAuthor(author));
   }, []);
 
   return (
@@ -32,7 +39,15 @@ const PoetryDetails = ({ match }) => {
 
       <hr />
       <h3>From the same Author</h3>
-
+      {
+        feat.map((f) => (
+          <div key={f.title + f.author}>
+            <p>{f.title}</p>
+            <p>{f.author}</p>
+            <hr />
+          </div>
+        ))
+      }
     </>
   );
 };

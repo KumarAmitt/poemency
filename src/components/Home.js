@@ -43,7 +43,7 @@ const Home = () => {
                 <td>{p.author}</td>
                 <td>{p.linecount}</td>
                 <td>
-                  <Link to={`/poetry/${p.title}/${p.author}`}>Details</Link>
+                  <Link to={`/poetry/${p.author}/${p.title}`}>Details</Link>
                 </td>
               </tr>
             ))

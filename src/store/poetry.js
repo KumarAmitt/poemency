@@ -69,14 +69,14 @@ export const loadAuthors = () => apiCallBegan({
 });
 
 export const random20 = () => apiCallBegan({
-  url: '/random/20/title,author,linecount',
+  url: '/random/20',
   onStart: poetryRequested.type,
   onSuccess: randomPoetryReceived.type,
   onError: poetryRequestFailed.type,
 });
 
 export const loadSinglePoetry = (title, author) => apiCallBegan({
-  url: `/title,author/${title};${author}`,
+  url: `/author,title/${author};${title}`,
   onStart: poetryRequested.type,
   onSuccess: singlePoetryReceived.type,
   onError: poetryRequestFailed.type,
@@ -117,3 +117,8 @@ export const getAuthors = createSelector(
     (state) => state.entities.poetry.author,
     (author) => author,
 );
+
+// export const getSinglePoetries2 = (title, author) => createSelector(
+//     (state) => state.entities.poetry.random20,
+//     (random20) => random20.filter(f => f.title === title && f.author === author),
+// );

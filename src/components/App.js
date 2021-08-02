@@ -10,7 +10,7 @@ function App() {
       <Header />
       <Switch>
         <Route path="/" exact component={Home} />
-        <Route path="/poetry/:title/:author" exact component={PoetryDetails} />
+        <Route path="/poetry/:author/:title" exact component={PoetryDetails} />
       </Switch>
     </Router>
   );

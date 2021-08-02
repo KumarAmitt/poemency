@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
@@ -21,16 +21,27 @@ const PoetryDetails = ({ match }) => {
     dispatch(loadPoetryByAuthor(author));
   }, []);
 
+  const [poetry, setPoetry] = useState(poem);
+
+  function renderPoetry(f) {
+    setPoetry({
+      title: f.title,
+      author: f.author,
+      lines: f.lines,
+    });
+  }
+
+  console.log(poetry);
+
   return (
     <>
       <Link to="/" exact> Go back</Link>
       <h1>Details Page</h1>
-      <h3>{title}</h3>
       <hr />
       <div>
-        <h3>{poem.title}</h3>
-        <h5>{poem.author}</h5>
-        <p>{poem.lines}</p>
+        <h3>{poetry.title}</h3>
+        <h5>{poetry.author}</h5>
+        <p>{poetry.lines}</p>
       </div>
 
       <hr />
@@ -40,6 +51,7 @@ const PoetryDetails = ({ match }) => {
           <div key={f.title + f.author}>
             <p>{f.title}</p>
             <p>{f.author}</p>
+            <Link to={`/poetry/${f.author}/${f.title}`} onClick={() => renderPoetry(f)}>Details</Link>
             <hr />
           </div>
         ))

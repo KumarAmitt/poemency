@@ -15,13 +15,14 @@ const Header = () => {
     e.preventDefault();
     dispatch(loadMatchPoetry(title));
     console.log(title);
+    setTitle('');
   };
 
   return (
     <>
       <h1>Poemency</h1>
       <form onSubmit={handleSubmit}>
-        <input type="text" onChange={handleChange} />
+        <input type="text" value={title} onChange={handleChange} placeholder="keywords from title" />
       </form>
     </>
   );

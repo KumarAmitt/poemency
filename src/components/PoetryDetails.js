@@ -5,13 +5,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getSinglePoetries, loadSinglePoetry } from '../store/poetry';
 
 const PoetryDetails = ({ match }) => {
-  const { params: { title } } = match;
+  const { params: { title, author } } = match;
 
   const dispatch = useDispatch();
   const poem = useSelector(getSinglePoetries);
 
   useEffect(() => {
-    dispatch(loadSinglePoetry(title));
+    dispatch(loadSinglePoetry(title, author));
   }, []);
 
   return (
@@ -29,6 +29,10 @@ const PoetryDetails = ({ match }) => {
           </div>
         ))
        }
+
+      <hr />
+      <h3>From the same Author</h3>
+
     </>
   );
 };

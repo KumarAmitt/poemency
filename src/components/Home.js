@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import uniqid from 'uniqid';
 import {
   getRandomPoetries, loadMatchPoetry, random20, loadPoetryByAuthor,
 } from '../store/poetry';
@@ -36,11 +37,11 @@ const Home = () => {
         <tbody>
           {
             poetries.map((p) => (
-              <tr key={p.title}>
+              <tr key={uniqid()}>
                 <td>{p.title}</td>
                 <td>{p.author}</td>
                 <td>
-                  <Link to={`/poetry/${p.title}`}>Details</Link>
+                  <Link to={`/poetry/${p.title}/${p.author}`}>Details</Link>
                 </td>
               </tr>
             ))

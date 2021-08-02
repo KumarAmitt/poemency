@@ -72,8 +72,8 @@ export const random20 = () => apiCallBegan({
   onError: poetryRequestFailed.type,
 });
 
-export const loadSinglePoetry = (title) => apiCallBegan({
-  url: `/title/${title}:abs`,
+export const loadSinglePoetry = (title, author) => apiCallBegan({
+  url: `/title,author/${title};${author}`,
   onStart: poetryRequested.type,
   onSuccess: singlePoetryReceived.type,
   onError: poetryRequestFailed.type,

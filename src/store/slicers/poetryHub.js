@@ -37,14 +37,14 @@ export const loadPoetryHub = () => apiCallBegan({
 });
 
 export const loadPoetryByAuthor = (author) => apiCallBegan({
-  url: `/author/${author}`,
+  url: `/author/${author}/author,title,linecount`,
   onStart: poemsRequested.type,
   onSuccess: poemsReceived.type,
   onError: poemsRequestFailed.type,
 });
 
 export const loadPoetryByTitle = (title) => apiCallBegan({
-  url: `/title/${title}`,
+  url: `/title/${title}/author,title,linecount`,
   onStart: poemsRequested.type,
   onSuccess: poemsReceived.type,
   onError: poemsRequestFailed.type,

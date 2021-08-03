@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import uniqid from 'uniqid';
 import {
-  loadPoetryHub, loadPoetryByAuthor, loadPoetryByTitle, getPoetryHub,
+  loadPoetryHub, loadPoetryByAuthor, loadPoetryByTitle, getPoetryHub, isPoetryHubLoading,
 } from '../store/slicers/poetryHub';
 import Filter from './Filter';
 
@@ -15,6 +15,7 @@ const Home = () => {
   }, []);
 
   const poetries = useSelector(getPoetryHub);
+  const isPoetriesLoading = useSelector(isPoetryHubLoading);
 
   function handleTitleChange(filter) {
     dispatch(loadPoetryByTitle(filter));
@@ -27,6 +28,9 @@ const Home = () => {
   return (
     <>
       <Filter filterTitle={handleTitleChange} filterAuthor={handleAuthorChange} />
+      {
+        isPoetriesLoading ? <h2>Loading ...</h2> : <h2>Loaded</h2>
+      }
       <table>
         <thead>
           <tr>

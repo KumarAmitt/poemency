@@ -57,6 +57,11 @@ export const getPoetryHub = createSelector(
   (poems) => poems,
 );
 
+export const isPoetryHubLoading = createSelector(
+  (state) => state.entities.poetryHub.loading,
+  (loading) => loading,
+);
+
 export const getIsSameAuthor = (author) => createSelector(
   (state) => state.entities.poetryHub.poems,
   (poems) => poems.every((e) => e.author === author),

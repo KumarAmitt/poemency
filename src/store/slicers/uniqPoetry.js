@@ -45,3 +45,8 @@ export const getUniqPoetry = createSelector(
   (state) => state.entities.uniqPoetry.poem,
   (poem) => poem,
 );
+
+export const istUniqPoetryLoading = createSelector(
+  (state) => state.entities.uniqPoetry.loading,
+  (loading) => loading,
+);

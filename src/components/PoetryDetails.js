@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import uniqid from 'uniqid';
 import { useDispatch, useSelector } from 'react-redux';
-import { loadUniqPoetry, getUniqPoetry } from '../store/slicers/uniqPoetry';
+import { loadUniqPoetry, getUniqPoetry, istUniqPoetryLoading } from '../store/slicers/uniqPoetry';
 import { loadPoetryByAuthor, getIsSameAuthor, getPoetryHub } from '../store/slicers/poetryHub';
 
 const PoetryDetails = ({ match }) => {
@@ -11,6 +11,7 @@ const PoetryDetails = ({ match }) => {
 
   const dispatch = useDispatch();
   const poem = useSelector(getUniqPoetry);
+  const isPoemLoading = useSelector(istUniqPoetryLoading);
   const feat = useSelector(getPoetryHub);
   const isSameAuthor = useSelector(getIsSameAuthor(author));
 
@@ -32,16 +33,20 @@ const PoetryDetails = ({ match }) => {
       <Link to="/" exact> Go back</Link>
       <h1>Details Page</h1>
       <hr />
-      <div>
-        <h3>{poem.title}</h3>
-        <h5>{poem.author}</h5>
-        <h6>{poem.lineCount}</h6>
-        <div>
-          {
-            poem.lines && poem.lines.map((p) => (p === '' ? '---' : <pre key={uniqid()}>{p}</pre>))
-          }
-        </div>
-      </div>
+      {
+        isPoemLoading ? <h2>Loading...</h2> : (
+          <div>
+            <h3>{poem.title}</h3>
+            <h5>{poem.author}</h5>
+            <h6>{poem.lineCount}</h6>
+            <div>
+              {
+              poem.lines && poem.lines.map((p) => (p === '' ? '---' : <pre key={uniqid()}>{p}</pre>))
+            }
+            </div>
+          </div>
+        )
+      }
 
       <hr />
       {

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import uniqid from 'uniqid';
-import { getAuthors, loadAuthors } from '../store/poetry';
+import { getAuthors, loadAuthors } from '../store/author';
 import { getTitles, loadTitles } from '../store/title';
 
 const Filter = ({ filterChange, filterAuthor }) => {
@@ -17,8 +17,6 @@ const Filter = ({ filterChange, filterAuthor }) => {
   useEffect(() => {
     dispatch(loadAuthors());
   }, []);
-
-  console.log(titles);
 
   return (
     <>
@@ -42,6 +40,7 @@ const Filter = ({ filterChange, filterAuthor }) => {
       </select>
 
       <select onChange={(e) => filterAuthor(e.target.value)}>
+        <option selected="true" disabled="disabled">--select by Author--</option>
         {
           authors.map((a) => (<option key={uniqid()} value={a}>{a}</option>))
         }

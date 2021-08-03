@@ -2,9 +2,8 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import uniqid from 'uniqid';
-import {
-  getTitles, getAuthors, loadAuthors, loadTitles,
-} from '../store/poetry';
+import { getAuthors, loadAuthors } from '../store/poetry';
+import { getTitles, loadTitles } from '../store/title';
 
 const Filter = ({ filterChange, filterAuthor }) => {
   const dispatch = useDispatch();
@@ -18,6 +17,8 @@ const Filter = ({ filterChange, filterAuthor }) => {
   useEffect(() => {
     dispatch(loadAuthors());
   }, []);
+
+  console.log(titles);
 
   return (
     <>
@@ -34,10 +35,10 @@ const Filter = ({ filterChange, filterAuthor }) => {
       {/* </datalist> */}
 
       <select onChange={(e) => filterChange(e.target.value)}>
-        {/* <option selected="true" disabled="disabled">--select by Title--</option> */}
+        <option selected="true" disabled="disabled">--select by Title--</option>
         {
           titles.map((t) => (<option key={uniqid()} value={t}>{t}</option>))
-        }
+         }
       </select>
 
       <select onChange={(e) => filterAuthor(e.target.value)}>

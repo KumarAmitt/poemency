@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { loadMatchPoetry } from '../store/poetry';
 
 const Header = () => {
-  const [title, setTitle] = useState();
+  const [title, setTitle] = useState('');
 
   const dispatch = useDispatch();
 
@@ -14,7 +14,6 @@ const Header = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(loadMatchPoetry(title));
-    console.log(title);
     setTitle('');
   };
 

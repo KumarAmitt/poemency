@@ -3,18 +3,19 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import uniqid from 'uniqid';
 import {
-  getRandomPoetries, loadMatchPoetry, random20, loadPoetryByAuthor,
+  loadMatchPoetry, loadPoetryByAuthor,
 } from '../store/poetry';
+import { getPoetryHub, loadPoetryHub } from '../store/poetryHub';
 import Filter from './Filter';
 
 const Home = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(random20());
+    dispatch(loadPoetryHub());
   }, []);
 
-  const poetries = useSelector(getRandomPoetries);
+  const poetries = useSelector(getPoetryHub);
 
   function handleChange(filter) {
     dispatch(loadMatchPoetry(filter));

@@ -29,10 +29,10 @@ const slice = createSlice({
       state.loading = false;
     },
     singlePoetryReceived: (state, action) => {
-      state.single.title = action.payload[0].title;
-      state.single.author = action.payload[0].author;
-      state.single.lines = action.payload[0].lines;
-      state.single.lineCount = action.payload[0].linecount;
+      // state.single.title = action.payload[0].title;
+      // state.single.author = action.payload[0].author;
+      // state.single.lines = action.payload[0].lines;
+      // state.single.lineCount = action.payload[0].linecount;
       state.loading = false;
     },
     poetryRequestFailed: (state, action) => {
@@ -54,19 +54,19 @@ export default slice.reducer;
 
 // ACTION CREATORS
 
-export const loadTitles = () => apiCallBegan({
-  url: '/title',
-  onStart: poetryRequested.type,
-  onSuccess: poetryTitleReceived.type,
-  onError: poetryRequestFailed.type,
-});
+// export const loadTitles = () => apiCallBegan({
+//   url: '/title',
+//   onStart: poetryRequested.type,
+//   onSuccess: poetryTitleReceived.type,
+//   onError: poetryRequestFailed.type,
+// });
 
-export const loadAuthors = () => apiCallBegan({
-  url: '/author',
-  onStart: poetryRequested.type,
-  onSuccess: poetryAuthorsReceived.type,
-  onError: poetryRequestFailed.type,
-});
+// export const loadAuthors = () => apiCallBegan({
+//   url: '/author',
+//   onStart: poetryRequested.type,
+//   onSuccess: poetryAuthorsReceived.type,
+//   onError: poetryRequestFailed.type,
+// });
 
 export const random20 = () => apiCallBegan({
   url: '/random/20/title,author,linecount',
@@ -108,12 +108,12 @@ export const getSinglePoetries = createSelector(
     (single) => single,
 );
 
-export const getTitles = createSelector(
-    (state) => state.entities.poetry.title,
-    (title) => title,
-);
+// export const getTitles = createSelector(
+//     (state) => state.entities.poetry.title,
+//     (title) => title,
+// );
 
-export const getAuthors = createSelector(
-    (state) => state.entities.poetry.author,
-    (author) => author,
-);
+// export const getAuthors = createSelector(
+//     (state) => state.entities.poetry.author,
+//     (author) => author,
+// );

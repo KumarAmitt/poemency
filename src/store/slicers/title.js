@@ -10,22 +10,22 @@ const titleSlice = createSlice({
     loading: false,
   },
   reducers: {
-    titleRequested: (state, action) => {
-      state.loading = true;
+    titleRequested: (title, action) => {
+      title.loading = true;
     },
-    titleReceived: (state, action) => {
-      state.titles = action.payload.titles;
-      state.loading = false;
+    titleReceived: (title, action) => {
+      title.titles = action.payload.titles;
+      title.loading = false;
     },
-    titleRequestFailed: (state, action) => {
-      state.loading = false;
+    titleRequestFailed: (title, action) => {
+      title.loading = false;
     },
   },
 });
+/* eslint-enable */
 
-const {titleRequested, titleReceived, titleRequestFailed} = titleSlice.actions;
+const { titleRequested, titleReceived, titleRequestFailed } = titleSlice.actions;
 export default titleSlice.reducer;
-
 
 // ACTION CREATOR
 
@@ -39,6 +39,6 @@ export const loadTitles = () => apiCallBegan({
 // SELECTOR
 
 export const getTitles = createSelector(
-    (state) => state.entities.title.titles,
-    (titles) => titles,
+  (state) => state.entities.title.titles,
+  (titles) => titles,
 );

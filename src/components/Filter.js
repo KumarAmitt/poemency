@@ -4,8 +4,9 @@ import PropTypes from 'prop-types';
 import uniqid from 'uniqid';
 import { loadAuthors, getAuthors } from '../store/slicers/author';
 import { loadTitles, getTitles } from '../store/slicers/title';
+import FilterTitle from './FilterTitle';
 
-const Filter = ({ filterChange, filterAuthor }) => {
+const Filter = ({ filterTitle, filterAuthor }) => {
   const dispatch = useDispatch();
   const titles = useSelector(getTitles);
   const authors = useSelector(getAuthors);
@@ -20,8 +21,9 @@ const Filter = ({ filterChange, filterAuthor }) => {
 
   return (
     <>
+      <FilterTitle filterTitle={filterTitle} />
       <h1>Filter</h1>
-      <select onChange={(e) => filterChange(e.target.value)}>
+      <select onChange={(e) => filterTitle(e.target.value)}>
         <option selected disabled>--select by Title--</option>
         {
           titles.map((t) => (<option key={uniqid()} value={t}>{t}</option>))
@@ -40,7 +42,7 @@ const Filter = ({ filterChange, filterAuthor }) => {
 };
 
 Filter.propTypes = {
-  filterChange: PropTypes.func.isRequired,
+  filterTitle: PropTypes.func.isRequired,
   filterAuthor: PropTypes.func.isRequired,
 };
 

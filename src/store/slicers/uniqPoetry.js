@@ -10,25 +10,25 @@ const uniqPoetrySlice = createSlice({
     loading: false,
   },
   reducers: {
-    poemRequested: (state, action) => {
-      state.loading = true;
+    poemRequested: (uniqPoetry, action) => {
+      uniqPoetry.loading = true;
     },
-    poemReceived: (state, action) => {
-      state.poem.title = action.payload[0].title;
-      state.poem.author = action.payload[0].author;
-      state.poem.lines = action.payload[0].lines;
-      state.poem.lineCount = action.payload[0].linecount;
-      state.loading = false;
+    poemReceived: (uniqPoetry, action) => {
+      uniqPoetry.poem.title = action.payload[0].title;
+      uniqPoetry.poem.author = action.payload[0].author;
+      uniqPoetry.poem.lines = action.payload[0].lines;
+      uniqPoetry.poem.lineCount = action.payload[0].linecount;
+      uniqPoetry.loading = false;
     },
-    poemRequestFailed: (state, action) => {
-      state.loading = false;
+    poemRequestFailed: (uniqPoetry, action) => {
+      uniqPoetry.loading = false;
     },
   },
 });
+/* eslint-enable */
 
-const {poemRequested, poemReceived, poemRequestFailed} = uniqPoetrySlice.actions;
+const { poemRequested, poemReceived, poemRequestFailed } = uniqPoetrySlice.actions;
 export default uniqPoetrySlice.reducer;
-
 
 // ACTION CREATOR
 
@@ -42,6 +42,6 @@ export const loadUniqPoetry = (author, title) => apiCallBegan({
 // SELECTOR
 
 export const getUniqPoetry = createSelector(
-    (state) => state.entities.uniqPoetry.poem,
-    (poem) => poem,
+  (state) => state.entities.uniqPoetry.poem,
+  (poem) => poem,
 );

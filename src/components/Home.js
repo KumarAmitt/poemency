@@ -26,7 +26,7 @@ const Home = () => {
 
   return (
     <>
-      <Filter filterChange={handleChange} filterAuthor={handleAuthor} />
+      <Filter filterTitle={handleChange} filterAuthor={handleAuthor} />
       <table>
         <thead>
           <tr>

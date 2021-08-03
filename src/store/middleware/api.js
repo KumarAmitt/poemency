@@ -1,7 +1,7 @@
 import axios from 'axios';
 import * as actions from '../api';
 
-/* eslint-disable */
+// eslint-disable-next-line
 const api = ({ dispatch }) => (next) => async (action) => {
   if (action.type !== actions.apiCallBegan.type) return next(action);
 

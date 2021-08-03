@@ -10,22 +10,22 @@ const poetryHubSlice = createSlice({
     loading: false,
   },
   reducers: {
-    poemsRequested: (state, action) => {
-      state.loading = true;
+    poemsRequested: (poetryHub, action) => {
+      poetryHub.loading = true;
     },
-    poemsReceived: (state, action) => {
-      state.poems = action.payload;
-      state.loading = false;
+    poemsReceived: (poetryHub, action) => {
+      poetryHub.poems = action.payload;
+      poetryHub.loading = false;
     },
-    poemsRequestFailed: (state, action) => {
-      state.loading = false;
+    poemsRequestFailed: (poetryHub, action) => {
+      poetryHub .loading = false;
     },
   },
 });
+/* eslint-enable */
 
-const {poemsRequested, poemsReceived, poemsRequestFailed} = poetryHubSlice.actions;
+const { poemsRequested, poemsReceived, poemsRequestFailed } = poetryHubSlice.actions;
 export default poetryHubSlice.reducer;
-
 
 // ACTION CREATOR
 
@@ -50,15 +50,14 @@ export const loadPoetryByTitle = (title) => apiCallBegan({
   onError: poemsRequestFailed.type,
 });
 
-
 // SELECTOR
 
 export const getPoetryHub = createSelector(
-    (state) => state.entities.poetryHub.poems,
-    (poems) => poems,
+  (state) => state.entities.poetryHub.poems,
+  (poems) => poems,
 );
 
 export const getIsSameAuthor = (author) => createSelector(
-    (state) => state.entities.poetryHub.poems,
-    (poems) => poems.every(e => e.author === author),
-)
+  (state) => state.entities.poetryHub.poems,
+  (poems) => poems.every((e) => e.author === author),
+);

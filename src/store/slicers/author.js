@@ -10,22 +10,22 @@ const authorSlice = createSlice({
     loading: false,
   },
   reducers: {
-    authorRequested: (state, action) => {
-      state.loading = true;
+    authorRequested: (author, action) => {
+      author.loading = true;
     },
-    authorReceived: (state, action) => {
-      state.authors = action.payload.authors;
-      state.loading = false;
+    authorReceived: (author, action) => {
+      author.authors = action.payload.authors;
+      author.loading = false;
     },
     authorRequestFailed: (state, action) => {
-      state.loading = false;
+      author.loading = false;
     },
   },
 });
+/* eslint-enable */
 
-const {authorRequested, authorReceived, authorRequestFailed } = authorSlice.actions;
+const { authorRequested, authorReceived, authorRequestFailed } = authorSlice.actions;
 export default authorSlice.reducer;
-
 
 // ACTION CREATOR
 
@@ -39,6 +39,6 @@ export const loadAuthors = () => apiCallBegan({
 // SELECTOR
 
 export const getAuthors = createSelector(
-    (state) => state.entities.author.authors,
-    (authors) => authors,
+  (state) => state.entities.author.authors,
+  (authors) => authors,
 );

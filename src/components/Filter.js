@@ -2,8 +2,8 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import uniqid from 'uniqid';
-import { getAuthors, loadAuthors } from '../store/author';
-import { getTitles, loadTitles } from '../store/title';
+import { loadAuthors, getAuthors } from '../store/author';
+import { loadTitles, getTitles } from '../store/title';
 
 const Filter = ({ filterChange, filterAuthor }) => {
   const dispatch = useDispatch();

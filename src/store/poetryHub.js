@@ -36,9 +36,29 @@ export const loadPoetryHub = () => apiCallBegan({
   onError: poemsRequestFailed.type,
 });
 
+export const loadPoetryByAuthor = (author) => apiCallBegan({
+  url: `/author/${author}`,
+  onStart: poemsRequested.type,
+  onSuccess: poemsReceived.type,
+  onError: poemsRequestFailed.type,
+});
+
+export const loadPoetryByTitle = (title) => apiCallBegan({
+  url: `/title/${title}`,
+  onStart: poemsRequested.type,
+  onSuccess: poemsReceived.type,
+  onError: poemsRequestFailed.type,
+});
+
+
 // SELECTOR
 
 export const getPoetryHub = createSelector(
     (state) => state.entities.poetryHub.poems,
     (poems) => poems,
 );
+
+export const getIsSameAuthor = (author) => createSelector(
+    (state) => state.entities.poetryHub.poems,
+    (poems) => poems.every(e => e.author === author),
+)

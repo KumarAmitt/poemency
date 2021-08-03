@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { createSelector } from 'reselect';
-import { apiCallBegan } from './api';
+// import { createSelector } from 'reselect';
+// import { apiCallBegan } from './api';
 
 /* eslint-disable */
 const slice = createSlice({
@@ -68,12 +68,12 @@ export default slice.reducer;
 //   onError: poetryRequestFailed.type,
 // });
 
-export const random20 = () => apiCallBegan({
-  url: '/random/20/title,author,linecount',
-  onStart: poetryRequested.type,
-  onSuccess: randomPoetryReceived.type,
-  onError: poetryRequestFailed.type,
-});
+// export const random20 = () => apiCallBegan({
+//   url: '/random/20/title,author,linecount',
+//   onStart: poetryRequested.type,
+//   onSuccess: randomPoetryReceived.type,
+//   onError: poetryRequestFailed.type,
+// });
 
 // export const loadSinglePoetry = (title, author) => apiCallBegan({
 //   url: `/author,title/${author};${title}`,
@@ -82,26 +82,26 @@ export const random20 = () => apiCallBegan({
 //   onError: poetryRequestFailed.type,
 // });
 
-export const loadMatchPoetry = (title) => apiCallBegan({
-  url: `/title/${title}`,
-  onStart: poetryRequested.type,
-  onSuccess: randomPoetryReceived.type,
-  onError: poetryRequestFailed.type,
-});
+// export const loadMatchPoetry = (title) => apiCallBegan({
+//   url: `/title/${title}`,
+//   onStart: poetryRequested.type,
+//   onSuccess: randomPoetryReceived.type,
+//   onError: poetryRequestFailed.type,
+// });
 
-export const loadPoetryByAuthor = (author) => apiCallBegan({
-  url: `/author/${author}`,
-  onStart: poetryRequested.type,
-  onSuccess: randomPoetryReceived.type,
-  onError: poetryRequestFailed.type,
-});
+// export const loadPoetryByAuthor = (author) => apiCallBegan({
+//   url: `/author/${author}`,
+//   onStart: poetryRequested.type,
+//   onSuccess: randomPoetryReceived.type,
+//   onError: poetryRequestFailed.type,
+// });
 
 // SELECTOR
 
-export const getRandomPoetries = createSelector(
-  (state) => state.entities.poetry.random20,
-  (random20) => random20,
-);
+// export const getRandomPoetries = createSelector(
+//   (state) => state.entities.poetry.random20,
+//   (random20) => random20,
+// );
 
 // export const getSinglePoetries = createSelector(
 //     (state) => state.entities.poetry.single,

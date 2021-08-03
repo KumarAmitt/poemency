@@ -3,17 +3,16 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import uniqid from 'uniqid';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  getRandomPoetries, loadPoetryByAuthor,
-} from '../store/poetry';
 import { loadUniqPoetry, getUniqPoetry } from '../store/uniqPoetry';
+import { loadPoetryByAuthor, getPoetryHub, getIsSameAuthor } from '../store/poetryHub';
 
 const PoetryDetails = ({ match }) => {
   const { params: { title, author } } = match;
 
   const dispatch = useDispatch();
   const poem = useSelector(getUniqPoetry);
-  const feat = useSelector(getRandomPoetries);
+  const feat = useSelector(getPoetryHub);
+  const isSameAuthor = useSelector(getIsSameAuthor(author));
 
   useEffect(() => {
     dispatch(loadUniqPoetry(author, title));
@@ -45,7 +44,9 @@ const PoetryDetails = ({ match }) => {
       </div>
 
       <hr />
-      <h3>From the same Author</h3>
+      {
+        isSameAuthor ? <h2>From the same Composer</h2> : <h2>Search suggestions</h2>
+      }
       {
         feat.map((f) => (
           <div key={f.title + f.author}>

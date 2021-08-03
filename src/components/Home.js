@@ -3,9 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import uniqid from 'uniqid';
 import {
-  loadMatchPoetry, loadPoetryByAuthor,
-} from '../store/poetry';
-import { getPoetryHub, loadPoetryHub } from '../store/poetryHub';
+  loadPoetryHub, loadPoetryByAuthor, loadPoetryByTitle, getPoetryHub,
+} from '../store/poetryHub';
 import Filter from './Filter';
 
 const Home = () => {
@@ -18,8 +17,9 @@ const Home = () => {
   const poetries = useSelector(getPoetryHub);
 
   function handleChange(filter) {
-    dispatch(loadMatchPoetry(filter));
+    dispatch(loadPoetryByTitle(filter));
   }
+
   function handleAuthor(filter) {
     dispatch(loadPoetryByAuthor(filter));
   }

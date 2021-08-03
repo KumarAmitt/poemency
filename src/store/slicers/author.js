@@ -48,3 +48,8 @@ export const getRandomAuthors = createSelector(
   (state) => state.entities.author.authors,
   (authors) => randomItem.multiple(authors, 5),
 );
+
+export const isAuthorLoading = createSelector(
+  (state) => state.entities.author.loading,
+  (loading) => loading,
+);

@@ -29,19 +29,18 @@ const Home = () => {
     <>
       <Filter filterTitle={handleTitleChange} filterAuthor={handleAuthorChange} />
       {
-        isPoetriesLoading ? <h2>Loading ...</h2> : <h2>Loaded</h2>
-      }
-      <table>
-        <thead>
-          <tr>
-            <th>Title</th>
-            <th>Author</th>
-            <th>Lines</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          {
+        isPoetriesLoading ? <h2>Loading ...</h2> : (
+          <table>
+            <thead>
+              <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Lines</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {
             poetries.map((p) => (
               <tr key={uniqid()}>
                 <td>{p.title}</td>
@@ -53,8 +52,10 @@ const Home = () => {
               </tr>
             ))
           }
-        </tbody>
-      </table>
+            </tbody>
+          </table>
+        )
+      }
     </>
   );
 };

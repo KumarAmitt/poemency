@@ -16,17 +16,17 @@ const Home = () => {
 
   const poetries = useSelector(getPoetryHub);
 
-  function handleChange(filter) {
+  function handleTitleChange(filter) {
     dispatch(loadPoetryByTitle(filter));
   }
 
-  function handleAuthor(filter) {
+  function handleAuthorChange(filter) {
     dispatch(loadPoetryByAuthor(filter));
   }
 
   return (
     <>
-      <Filter filterTitle={handleChange} filterAuthor={handleAuthor} />
+      <Filter filterTitle={handleTitleChange} filterAuthor={handleAuthorChange} />
       <table>
         <thead>
           <tr>

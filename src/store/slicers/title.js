@@ -42,3 +42,8 @@ export const getTitles = createSelector(
   (state) => state.entities.title.titles,
   (titles) => titles,
 );
+
+export const isTitleLoading = createSelector(
+  (state) => state.entities.title.loading,
+  (loading) => loading,
+);

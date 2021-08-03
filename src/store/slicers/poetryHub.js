@@ -23,7 +23,7 @@ const poetryHubSlice = createSlice({
   },
 });
 
-export const {poemsRequested, poemsReceived, poemsRequestFailed} = poetryHubSlice.actions;
+const {poemsRequested, poemsReceived, poemsRequestFailed} = poetryHubSlice.actions;
 export default poetryHubSlice.reducer;
 
 

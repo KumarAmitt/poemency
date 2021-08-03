@@ -23,7 +23,7 @@ const authorSlice = createSlice({
   },
 });
 
-export const {authorRequested, authorReceived, authorRequestFailed } = authorSlice.actions;
+const {authorRequested, authorReceived, authorRequestFailed } = authorSlice.actions;
 export default authorSlice.reducer;
 
 

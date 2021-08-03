@@ -23,7 +23,7 @@ const titleSlice = createSlice({
   },
 });
 
-export const {titleRequested, titleReceived, titleRequestFailed} = titleSlice.actions;
+const {titleRequested, titleReceived, titleRequestFailed} = titleSlice.actions;
 export default titleSlice.reducer;
 
 

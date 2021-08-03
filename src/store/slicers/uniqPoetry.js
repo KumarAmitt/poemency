@@ -26,7 +26,7 @@ const uniqPoetrySlice = createSlice({
   },
 });
 
-export const {poemRequested, poemReceived, poemRequestFailed} = uniqPoetrySlice.actions;
+const {poemRequested, poemReceived, poemRequestFailed} = uniqPoetrySlice.actions;
 export default uniqPoetrySlice.reducer;
 
 

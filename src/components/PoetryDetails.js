@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import uniqid from 'uniqid';
 import { useDispatch, useSelector } from 'react-redux';
-import { loadUniqPoetry, getUniqPoetry } from '../store/uniqPoetry';
-import { loadPoetryByAuthor, getPoetryHub, getIsSameAuthor } from '../store/poetryHub';
+import { loadUniqPoetry, getUniqPoetry } from '../store/slicers/uniqPoetry';
+import { loadPoetryByAuthor, getIsSameAuthor, getPoetryHub } from '../store/slicers/poetryHub';
 
 const PoetryDetails = ({ match }) => {
   const { params: { title, author } } = match;
@@ -36,11 +36,11 @@ const PoetryDetails = ({ match }) => {
         <h3>{poem.title}</h3>
         <h5>{poem.author}</h5>
         <h6>{poem.lineCount}</h6>
-        <p>
+        <div>
           {
             poem.lines && poem.lines.map((p) => (p === '' ? '---' : <pre key={uniqid()}>{p}</pre>))
           }
-        </p>
+        </div>
       </div>
 
       <hr />
@@ -49,7 +49,7 @@ const PoetryDetails = ({ match }) => {
       }
       {
         feat.map((f) => (
-          <div key={f.title + f.author}>
+          <div key={uniqid()}>
             <p>{f.title}</p>
             <p>{f.author}</p>
             <p>{f.linecount}</p>

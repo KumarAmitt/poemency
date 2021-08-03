@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { createSelector } from 'reselect';
-import { apiCallBegan } from './api';
+import { apiCallBegan } from '../api';
 
 /* eslint-disable */
 const titleSlice = createSlice({

@@ -1,14 +1,12 @@
 import { combineReducers } from 'redux';
-import poetryReducer from './poetry';
-import titleReducer from './title';
-import authorReducer from './author';
-import uniqPoetryReducer from './uniqPoetry';
-import poetryHubReducer from './poetryHub';
+import titleReducer from './slicers/title';
+import authorReducer from './slicers/author';
+import uniqPoetryReducer from './slicers/uniqPoetry';
+import poetryHubReducer from './slicers/poetryHub';
 
 export default combineReducers({
   title: titleReducer,
   author: authorReducer,
   uniqPoetry: uniqPoetryReducer,
   poetryHub: poetryHubReducer,
-  poetry: poetryReducer,
 });

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import uniqid from 'uniqid';
 import {
   loadPoetryHub, loadPoetryByAuthor, loadPoetryByTitle, getPoetryHub,
-} from '../store/poetryHub';
+} from '../store/slicers/poetryHub';
 import Filter from './Filter';
 
 const Home = () => {

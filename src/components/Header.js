@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { loadPoetryByTitle } from '../store/poetryHub';
+import { loadPoetryByTitle } from '../store/slicers/poetryHub';
 
 const Header = () => {
   const [title, setTitle] = useState('');

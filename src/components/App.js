@@ -9,8 +9,8 @@ function App() {
     <Router>
       <Header />
       <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/poetry/:author/:title" exact component={PoetryDetails} />
+        <Route path="/" component={Home} exact />
+        <Route path="/poetry/:author/:title" component={PoetryDetails} exact />
       </Switch>
     </Router>
   );

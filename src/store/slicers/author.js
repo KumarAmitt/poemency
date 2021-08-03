@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { createSelector } from 'reselect';
+import randomItem from 'random-item';
 import { apiCallBegan } from '../api';
 
 /* eslint-disable */
@@ -41,4 +42,9 @@ export const loadAuthors = () => apiCallBegan({
 export const getAuthors = createSelector(
   (state) => state.entities.author.authors,
   (authors) => authors,
+);
+
+export const getRandomAuthors = createSelector(
+  (state) => state.entities.author.authors,
+  (authors) => randomItem.multiple(authors, 5),
 );

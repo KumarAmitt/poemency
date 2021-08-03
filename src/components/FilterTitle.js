@@ -18,8 +18,8 @@ const FilterTitle = ({ filterTitle }) => {
       <select onChange={(e) => filterTitle(e.target.value)}>
         <option selected disabled>--select by Title--</option>
         {
-            titles.map((t) => (<option key={uniqid()} value={t}>{t}</option>))
-          }
+          titles.map((t) => (<option key={uniqid()} value={t}>{t}</option>))
+        }
       </select>
     </>
   );

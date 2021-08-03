@@ -4,18 +4,19 @@ import PropTypes from 'prop-types';
 import uniqid from 'uniqid';
 import { useDispatch, useSelector } from 'react-redux';
 import {
-  getRandomPoetries, getSinglePoetries, loadPoetryByAuthor, loadSinglePoetry,
+  getRandomPoetries, loadPoetryByAuthor,
 } from '../store/poetry';
+import { loadUniqPoetry, getUniqPoetry } from '../store/uniqPoetry';
 
 const PoetryDetails = ({ match }) => {
   const { params: { title, author } } = match;
 
   const dispatch = useDispatch();
-  const poem = useSelector(getSinglePoetries);
+  const poem = useSelector(getUniqPoetry);
   const feat = useSelector(getRandomPoetries);
 
   useEffect(() => {
-    dispatch(loadSinglePoetry(title, author));
+    dispatch(loadUniqPoetry(author, title));
   }, []);
 
   useEffect(() => {
@@ -24,7 +25,7 @@ const PoetryDetails = ({ match }) => {
 
   function renderPoetry(f) {
     window.scrollTo(0, 0);
-    dispatch(loadSinglePoetry(f.title, f.author));
+    dispatch(loadUniqPoetry(f.author, f.title));
   }
 
   return (

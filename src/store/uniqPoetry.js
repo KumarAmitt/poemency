@@ -41,7 +41,7 @@ export const loadUniqPoetry = (author, title) => apiCallBegan({
 
 // SELECTOR
 
-export const getTitles = createSelector(
-    (state) => state.entities.poem,
+export const getUniqPoetry = createSelector(
+    (state) => state.entities.uniqPoetry.poem,
     (poem) => poem,
 );

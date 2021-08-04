@@ -1,5 +1,5 @@
-import configureAppStore from '../configureStore';
-import { loadAuthors } from '../slicers/author';
+// import configureAppStore from '../configureStore';
+// import { loadAuthors } from '../slicers/author';
 
 describe('authorSlice', () => {
   it('should handle the loadTAuthors action', async () => {

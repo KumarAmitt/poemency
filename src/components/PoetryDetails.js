@@ -5,6 +5,7 @@ import uniqid from 'uniqid';
 import { useDispatch, useSelector } from 'react-redux';
 import { loadUniqPoetry, getUniqPoetry, istUniqPoetryLoading } from '../store/slicers/uniqPoetry';
 import { loadPoetryByAuthor, getIsSameAuthor, getPoetryHub } from '../store/slicers/poetryHub';
+import Loading from './Loading';
 
 const PoetryDetails = ({ match }) => {
   const { params: { title, author } } = match;
@@ -34,7 +35,7 @@ const PoetryDetails = ({ match }) => {
       <h1>Details Page</h1>
       <hr />
       {
-        isPoemLoading ? <h2>Loading...</h2> : (
+        isPoemLoading ? <Loading /> : (
           <div>
             <h3>{poem.title}</h3>
             <h5>{poem.author}</h5>
@@ -53,16 +54,17 @@ const PoetryDetails = ({ match }) => {
         isSameAuthor ? <h2>From the same Composer</h2> : <h2>Search suggestions</h2>
       }
       {
-        feat.map((f) => (
-          <div key={uniqid()}>
-            <p>{f.title}</p>
-            <p>{f.author}</p>
-            <p>{f.linecount}</p>
-            <Link to={`/poetry/${f.author}/${f.title}`} onClick={() => renderPoetry(f)}>Details</Link>
-            <hr />
-          </div>
-        ))
+       feat.map((f) => (
+         <div key={uniqid()}>
+           <p>{f.title}</p>
+           <p>{f.author}</p>
+           <p>{f.linecount}</p>
+           <Link to={`/poetry/${f.author}/${f.title}`} onClick={() => renderPoetry(f)}>Details</Link>
+           <hr />
+         </div>
+       ))
        }
+
     </>
   );
 };

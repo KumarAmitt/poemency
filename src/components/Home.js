@@ -6,6 +6,7 @@ import {
   loadPoetryHub, loadPoetryByAuthor, loadPoetryByTitle, getPoetryHub, isPoetryHubLoading,
 } from '../store/slicers/poetryHub';
 import Filter from './Filter';
+import Loading from './Loading';
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -29,7 +30,7 @@ const Home = () => {
     <>
       <Filter filterTitle={handleTitleChange} filterAuthor={handleAuthorChange} />
       {
-        isPoetriesLoading ? <h2>Loading ...</h2> : (
+        isPoetriesLoading ? <Loading /> : (
           <table>
             <thead>
               <tr>

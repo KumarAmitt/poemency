@@ -6,6 +6,7 @@ import {
   getAuthors, getRandomAuthors, isAuthorLoading, loadAuthors,
 } from '../store/slicers/author';
 import { loadPoetryByAuthor } from '../store/slicers/poetryHub';
+import Loading from './Loading';
 
 const FilterAuthor = ({ filterAuthor }) => {
   const dispatch = useDispatch();
@@ -27,7 +28,7 @@ const FilterAuthor = ({ filterAuthor }) => {
     <>
       <h1>Filter Author</h1>
       {
-        isAuthorLoaded ? <h2>Author Loading ...</h2> : (
+        isAuthorLoaded ? <Loading /> : (
           <div>
             <select onChange={(e) => filterAuthor(e.target.value)}>
               <option selected disabled>--select by Author--</option>

@@ -15,12 +15,14 @@ ReactDOM.render(
 );
 
 //-------------------
-
+//
 // import configureAppStore from './store/configureStore';
-// import { random20 } from './store/poetry';
+// import {titleAdded} from "./store/slicers/title";
+//
 //
 // const store = configureAppStore();
 //
 // // store.dispatch(loadTitles())
 // // store.dispatch(loadAuthors())
-// store.dispatch(random20());
+// store.dispatch(titleAdded())
+// console.log(store.getState())

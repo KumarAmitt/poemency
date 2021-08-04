@@ -21,7 +21,7 @@ const FilterAuthor = ({ filterAuthor }) => {
     dispatch(loadPoetryByAuthor(author));
   };
 
-  console.log(randomAuthors);
+  // console.log(randomAuthors);
 
   return (
     <>

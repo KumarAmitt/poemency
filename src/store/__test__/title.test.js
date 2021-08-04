@@ -23,17 +23,35 @@ describe('titleSlice', () => {
   });
 
   describe('loading Titles', () => {
+    describe('loading titles', () => {
+      it('should return an array of all the titles', async () => {
+        fakeAxios.onGet('/title').reply(200, { titles: ['t1', 't2'] });
+
+        await store.dispatch(loadTitles());
+
+        expect(titleSlice().titles).toHaveLength(2);
+      });
+
+      it('should not returns title if Network error found', async () => {
+        fakeAxios.onGet('/title').reply(500);
+
+        await store.dispatch(loadTitles());
+
+        expect(titleSlice().titles).toHaveLength(0);
+      });
+    });
+
     describe('loading indicators', () => {
       it('should be true while fetching titles', () => {
         fakeAxios.onGet('/title').reply(() => {
           expect(titleSlice().loading).toBe(true);
-          return [200, ['title 1']];
+          return [200, { titles: ['t1'] }];
         });
         store.dispatch(loadTitles());
       });
 
       it('should be false after the titles are fetched', async () => {
-        fakeAxios.onGet('/title').reply(200, ['title 1']);
+        fakeAxios.onGet('/title').reply(200, { titles: ['t1'] });
 
         await store.dispatch(loadTitles());
 

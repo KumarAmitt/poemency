@@ -23,7 +23,7 @@ describe('titleSlice', () => {
   });
 
   describe('loading Titles', () => {
-    describe('loading titles', () => {
+    describe('loadTitle', () => {
       it('should return an array of all the titles', async () => {
         fakeAxios.onGet('/title').reply(200, { titles: ['t1', 't2'] });
 
@@ -32,7 +32,7 @@ describe('titleSlice', () => {
         expect(titleSlice().titles).toHaveLength(2);
       });
 
-      it('should not returns title if Network error found', async () => {
+      it('should not returns titles if Network error found', async () => {
         fakeAxios.onGet('/title').reply(500);
 
         await store.dispatch(loadTitles());
@@ -69,7 +69,7 @@ describe('titleSlice', () => {
   });
 
   describe('selectors', () => {
-    it('getTitleSelector', () => {
+    it('getTitleSelector should return all titles', () => {
       const state = createState();
       state.entities.title.titles = ['title 1', 'title 2'];
 

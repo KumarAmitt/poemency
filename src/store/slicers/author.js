@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { createSelector } from 'reselect';
-import randomItem from 'random-item';
+import pickRandom from 'pick-random';
 import { apiCallBegan } from '../api';
 
 /* eslint-disable */
@@ -18,7 +18,7 @@ const authorSlice = createSlice({
       author.authors = action.payload.authors;
       author.loading = false;
     },
-    authorRequestFailed: (state, action) => {
+    authorRequestFailed: (author, action) => {
       author.loading = false;
     },
   },
@@ -44,9 +44,14 @@ export const getAuthors = createSelector(
   (authors) => authors,
 );
 
+// export const getRandomAuthors = createSelector(
+//   (state) => state.entities.author.authors,
+//   (authors) => pickRandom(authors, { count: 5 }),
+// );
+
 export const getRandomAuthors = createSelector(
   (state) => state.entities.author.authors,
-  (authors) => randomItem.multiple(authors, 5),
+  (authors) => (authors.length > 5 ? pickRandom(authors, { count: 5 }) : authors),
 );
 
 export const isAuthorLoading = createSelector(

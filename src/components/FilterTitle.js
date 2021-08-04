@@ -7,7 +7,7 @@ import { getTitles, isTitleLoading, loadTitles } from '../store/slicers/title';
 const FilterTitle = ({ filterTitle }) => {
   const dispatch = useDispatch();
   const titles = useSelector(getTitles);
-  const isTitleLoaded = useSelector(isTitleLoading);
+  const isTitlesLoading = useSelector(isTitleLoading);
 
   useEffect(() => {
     dispatch(loadTitles());
@@ -17,7 +17,7 @@ const FilterTitle = ({ filterTitle }) => {
     <>
       <h1>Title Filter</h1>
       {
-        isTitleLoaded ? <h2>Loading...</h2> : (
+        isTitlesLoading ? <h2>Loading...</h2> : (
           <select onChange={(e) => filterTitle(e.target.value)}>
             <option selected disabled>--select by Title--</option>
             {

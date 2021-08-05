@@ -13,7 +13,6 @@ const Filter = ({ filterTitle, filterAuthor }) => (
     <hr />
   </>
 );
-
 Filter.propTypes = {
   filterTitle: PropTypes.func.isRequired,
   filterAuthor: PropTypes.func.isRequired,

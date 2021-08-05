@@ -18,12 +18,12 @@ const Home = () => {
   const poetries = useSelector(getPoetryHub);
   const isPoetriesLoading = useSelector(isPoetryHubLoading);
 
-  function handleTitleChange(filter) {
-    dispatch(loadPoetryByTitle(filter));
+  function handleTitleChange(title) {
+    dispatch(loadPoetryByTitle(title));
   }
 
-  function handleAuthorChange(filter) {
-    dispatch(loadPoetryByAuthor(filter));
+  function handleAuthorChange(author) {
+    dispatch(loadPoetryByAuthor(author));
   }
 
   if (poetries.status === 404) {

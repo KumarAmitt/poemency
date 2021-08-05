@@ -44,11 +44,6 @@ export const getAuthors = createSelector(
   (authors) => authors,
 );
 
-// export const getRandomAuthors = createSelector(
-//   (state) => state.entities.author.authors,
-//   (authors) => pickRandom(authors, { count: 5 }),
-// );
-
 export const getRandomAuthors = createSelector(
   (state) => state.entities.author.authors,
   (authors) => (authors.length > 5 ? pickRandom(authors, { count: 5 }) : authors),

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import uniqid from 'uniqid';
+import Select from 'react-select';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { getTitles, isTitleLoading, loadTitles } from '../store/slicers/title';
@@ -18,12 +18,11 @@ const FilterTitle = ({ filterTitle }) => {
     <>
       {
         isTitlesLoading ? <Loading /> : (
-          <select onChange={(e) => filterTitle(e.target.value)}>
-            <option selected disabled>--select by Title--</option>
-            {
-            titles.map((t) => (<option key={uniqid()} value={t}>{t}</option>))
-          }
-          </select>
+          <Select
+            options={titles.map((t) => ({ label: t, value: t }))}
+            onChange={(e) => filterTitle(e.label)}
+            placeholder="Select by Title"
+          />
         )
       }
     </>

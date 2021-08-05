@@ -7,6 +7,7 @@ import {
 } from '../store/slicers/poetryHub';
 import Filter from './Filter';
 import Loading from './Loading';
+import Error from './Error';
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -23,7 +24,7 @@ const Home = () => {
   }
 
   if (poetries.status === 404) {
-    return <h1>{poetries.reason}</h1>;
+    return <Error />;
   }
 
   return (

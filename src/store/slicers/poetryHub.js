@@ -83,5 +83,5 @@ export const isPoetryHubLoading = createSelector(
 
 export const getIsSameAuthor = (author) => createSelector(
   (state) => state.entities.poetryHub.poems,
-  (poems) => poems.every((e) => e.author === author),
+  (poems) => (poems.length > 0 ? poems.every((e) => e.author === author) : true),
 );

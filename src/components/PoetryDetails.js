@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import uniqid from 'uniqid';
 import { useDispatch, useSelector } from 'react-redux';
 import { loadUniqPoetry, getUniqPoetry, istUniqPoetryLoading } from '../store/slicers/uniqPoetry';
-import { loadPoetryByAuthor, getIsSameAuthor, getPoetryHub } from '../store/slicers/poetryHub';
+import { loadPoetryByAuthor, getPoetryHub, getIsSameAuthor } from '../store/slicers/poetryHub';
 import Loading from './Loading';
 
 const PoetryDetails = ({ match }) => {
@@ -27,6 +27,12 @@ const PoetryDetails = ({ match }) => {
   function renderPoetry(f) {
     window.scrollTo(0, 0);
     dispatch(loadUniqPoetry(f.author, f.title));
+  }
+
+  console.log(feat);
+
+  if (feat.status === 404) {
+    return <h1>{feat.reason}</h1>;
   }
 
   return (

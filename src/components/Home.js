@@ -18,10 +18,6 @@ const Home = () => {
   const poetries = useSelector(getPoetryHub);
   const isPoetriesLoading = useSelector(isPoetryHubLoading);
 
-  // function handleTitleChange(title) {
-  //   dispatch(loadPoetryByTitle(title));
-  // }
-
   function handleAuthorChange(author) {
     dispatch(loadPoetryByAuthor(author));
   }

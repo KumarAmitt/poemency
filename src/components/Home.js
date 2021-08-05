@@ -26,6 +26,10 @@ const Home = () => {
     dispatch(loadPoetryByAuthor(filter));
   }
 
+  if (poetries.status === 404) {
+    return <h1>{poetries.reason}</h1>;
+  }
+
   return (
     <>
       <Filter filterTitle={handleTitleChange} filterAuthor={handleAuthorChange} />

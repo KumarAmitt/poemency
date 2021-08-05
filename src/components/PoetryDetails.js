@@ -31,7 +31,7 @@ const PoetryDetails = ({ match }) => {
 
   return (
     <>
-      <Link to="/" exact> Go back</Link>
+      <Link to="/"> Go back</Link>
       <h1>Details Page</h1>
       <hr />
       {

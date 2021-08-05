@@ -26,7 +26,6 @@ const FilterAuthor = ({ filterAuthor }) => {
 
   return (
     <>
-      <h1>Filter Author</h1>
       {
         isAuthorLoaded ? <Loading /> : (
           <div>

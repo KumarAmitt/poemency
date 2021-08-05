@@ -16,7 +16,6 @@ const FilterTitle = ({ filterTitle }) => {
 
   return (
     <>
-      <h1>Title Filter</h1>
       {
         isTitlesLoading ? <Loading /> : (
           <select onChange={(e) => filterTitle(e.target.value)}>

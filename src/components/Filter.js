@@ -5,8 +5,10 @@ import FilterAuthor from './FilterAuthor';
 
 const Filter = ({ filterTitle, filterAuthor }) => (
   <>
-    <h1>Filter</h1>
+    <h2>Filter</h2>
     <FilterTitle filterTitle={filterTitle} />
+    <br />
+    <br />
     <FilterAuthor filterAuthor={filterAuthor} />
     <hr />
   </>

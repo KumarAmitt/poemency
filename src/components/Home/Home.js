@@ -8,6 +8,7 @@ import {
 import Filter from './Sidebar/Filter';
 import Loading from '../utilityComponent/Loading';
 import Error from '../utilityComponent/Error';
+import './Home.css';
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -29,35 +30,29 @@ const Home = () => {
 
   return (
     <>
-      <Filter filterAuthor={handleAuthorChange} />
-      {
-        isPoetriesLoading ? <Loading /> : (
-          <table>
-            <thead>
-              <tr>
-                <th>Title</th>
-                <th>Author</th>
-                <th>Lines</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              {
-            poetries.map((p) => (
-              <tr key={uniqid()}>
-                <td>{p.title}</td>
-                <td>{p.author}</td>
-                <td>{p.linecount}</td>
-                <td>
-                  <Link to={`/poetry/${p.author}/${p.title}`}>Details</Link>
-                </td>
-              </tr>
-            ))
+      <div>
+        <main>
+          {
+            isPoetriesLoading ? <Loading /> : (
+              poetries.map((p) => (
+                <div key={uniqid()} className="card">
+                  <p>{p.author}</p>
+                  <h3>{p.title.length > 50 ? `${p.title.substr(0, 46)}...` : p.title}</h3>
+                  <div className="card-footer">
+                    <Link to={`/poetry/${p.author}/${p.title}`} className="link">Read Poetry</Link>
+                    <p className="lineCount">
+                      Lines Count:
+                      {p.linecount}
+                    </p>
+                  </div>
+                </div>
+              ))
+            )
           }
-            </tbody>
-          </table>
-        )
-      }
+        </main>
+
+        <Filter filterAuthor={handleAuthorChange} />
+      </div>
     </>
   );
 };

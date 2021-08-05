@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import FilterTitle from './FilterTitle';
 import FilterAuthor from './FilterAuthor';
 
-const Filter = ({ filterTitle, filterAuthor }) => (
+const Filter = ({ filterAuthor }) => (
   <>
     <h2>Filter</h2>
-    <FilterTitle filterTitle={filterTitle} />
+    <FilterTitle />
     <br />
     <br />
     <FilterAuthor filterAuthor={filterAuthor} />
@@ -14,7 +14,6 @@ const Filter = ({ filterTitle, filterAuthor }) => (
   </>
 );
 Filter.propTypes = {
-  filterTitle: PropTypes.func.isRequired,
   filterAuthor: PropTypes.func.isRequired,
 };
 

@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import uniqid from 'uniqid';
 import { useDispatch, useSelector } from 'react-redux';
-import { loadUniqPoetry, getUniqPoetry, istUniqPoetryLoading } from '../store/slicers/uniqPoetry';
-import { loadPoetryByAuthor, getPoetryHub, getIsSameAuthor } from '../store/slicers/poetryHub';
-import Loading from './utilityComponent/Loading';
-import Error from './utilityComponent/Error';
+import { loadUniqPoetry, getUniqPoetry, istUniqPoetryLoading } from '../../store/slicers/uniqPoetry';
+import { loadPoetryByAuthor, getPoetryHub, getIsSameAuthor } from '../../store/slicers/poetryHub';
+import Loading from '../utilityComponent/Loading';
+import Error from '../utilityComponent/Error';
 
 const PoetryDetails = ({ match }) => {
   const { params: { title, author } } = match;

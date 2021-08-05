@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom';
 import uniqid from 'uniqid';
 import {
   loadPoetryHub, loadPoetryByAuthor, getPoetryHub, isPoetryHubLoading,
-} from '../store/slicers/poetryHub';
-import Filter from './Filter';
-import Loading from './utilityComponent/Loading';
-import Error from './utilityComponent/Error';
+} from '../../store/slicers/poetryHub';
+import Filter from './Sidebar/Filter';
+import Loading from '../utilityComponent/Loading';
+import Error from '../utilityComponent/Error';
 
 const Home = () => {
   const dispatch = useDispatch();

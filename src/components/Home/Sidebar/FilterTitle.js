@@ -3,9 +3,9 @@ import Select from 'react-select';
 import { useDispatch, useSelector } from 'react-redux';
 import uniqid from 'uniqid';
 import { Link } from 'react-router-dom';
-import { getTitles, isTitleLoading, loadTitles } from '../store/slicers/title';
-import Loading from './utilityComponent/Loading';
-import { getAbsPoetry, loadPoetryByAbsTitle } from '../store/slicers/poetryHub';
+import { getTitles, isTitleLoading, loadTitles } from '../../../store/slicers/title';
+import Loading from '../../utilityComponent/Loading';
+import { getAbsPoetry, loadPoetryByAbsTitle } from '../../../store/slicers/poetryHub';
 
 const FilterTitle = () => {
   const dispatch = useDispatch();

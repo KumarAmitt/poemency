@@ -5,9 +5,9 @@ import uniqid from 'uniqid';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   getAuthors, getRandomAuthors, isAuthorLoading, loadAuthors,
-} from '../store/slicers/author';
-import { loadPoetryByAuthor } from '../store/slicers/poetryHub';
-import Loading from './utilityComponent/Loading';
+} from '../../../store/slicers/author';
+import { loadPoetryByAuthor } from '../../../store/slicers/poetryHub';
+import Loading from '../../utilityComponent/Loading';
 
 const FilterAuthor = ({ filterAuthor }) => {
   const dispatch = useDispatch();

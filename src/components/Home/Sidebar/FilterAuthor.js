@@ -8,6 +8,8 @@ import {
 } from '../../../store/slicers/author';
 import { loadPoetryByAuthor } from '../../../store/slicers/poetryHub';
 import Loading from '../../utilityComponent/Loading';
+import '../../sharedCSS/card.css';
+import './FilterAuthor.css';
 
 const FilterAuthor = ({ filterAuthor }) => {
   const dispatch = useDispatch();
@@ -24,7 +26,7 @@ const FilterAuthor = ({ filterAuthor }) => {
   };
 
   return (
-    <>
+    <div className="card">
       {
         isAuthorLoaded ? <Loading /> : (
           <div>
@@ -33,15 +35,24 @@ const FilterAuthor = ({ filterAuthor }) => {
               onChange={(e) => filterAuthor(e.label)}
               placeholder="Select by Author"
             />
-            <div>
+            <div className="button-container">
               {
-              randomAuthors.map((a) => (<button type="button" key={uniqid()} onClick={() => handleClick(a)}>{a}</button>))
+              randomAuthors.map((a) => (
+                <button
+                  className="button"
+                  type="button"
+                  key={uniqid()}
+                  onClick={() => handleClick(a)}
+                >
+                  {a}
+                </button>
+              ))
             }
             </div>
           </div>
         )
       }
-    </>
+    </div>
   );
 };
 

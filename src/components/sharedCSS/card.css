@@ -23,10 +23,11 @@
     background-image: linear-gradient(to right, #895cf2, #ffabf4);
 }
 
+.card-footer .link:hover {
+    background-image: linear-gradient(to right, #ffabf4, #895cf2);
+}
+
 .lineCount {
     font-size: 0.9rem;
     font-weight: 700;
-    /*background: -webkit-linear-gradient(#895cf2, #ffabf4);*/
-    /*-webkit-background-clip: text;*/
-    /*-webkit-text-fill-color: transparent;*/
 }

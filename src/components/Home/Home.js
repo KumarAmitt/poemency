@@ -8,7 +8,7 @@ import {
 import Filter from './Sidebar/Filter';
 import Loading from '../utilityComponent/Loading';
 import Error from '../utilityComponent/Error';
-import './Home.css';
+import '../sharedCSS/card.css';
 
 const Home = () => {
   const dispatch = useDispatch();

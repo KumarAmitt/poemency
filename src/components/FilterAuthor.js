@@ -7,7 +7,7 @@ import {
   getAuthors, getRandomAuthors, isAuthorLoading, loadAuthors,
 } from '../store/slicers/author';
 import { loadPoetryByAuthor } from '../store/slicers/poetryHub';
-import Loading from './Loading';
+import Loading from './utilityComponent/Loading';
 
 const FilterAuthor = ({ filterAuthor }) => {
   const dispatch = useDispatch();

@@ -6,8 +6,8 @@ import {
   loadPoetryHub, loadPoetryByAuthor, getPoetryHub, isPoetryHubLoading,
 } from '../store/slicers/poetryHub';
 import Filter from './Filter';
-import Loading from './Loading';
-import Error from './Error';
+import Loading from './utilityComponent/Loading';
+import Error from './utilityComponent/Error';
 
 const Home = () => {
   const dispatch = useDispatch();

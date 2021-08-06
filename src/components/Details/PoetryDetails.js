@@ -3,10 +3,12 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import uniqid from 'uniqid';
 import { useDispatch, useSelector } from 'react-redux';
+import HomeIcon from '@material-ui/icons/Home';
 import { loadUniqPoetry, getUniqPoetry, istUniqPoetryLoading } from '../../store/slicers/uniqPoetry';
 import { loadPoetryByAuthor, getPoetryHub, getIsSameAuthor } from '../../store/slicers/poetryHub';
 import Loading from '../utilityComponent/Loading';
 import Error from '../utilityComponent/Error';
+import './PoetryDetails.css';
 
 const PoetryDetails = ({ match }) => {
   const { params: { title, author } } = match;
@@ -36,23 +38,38 @@ const PoetryDetails = ({ match }) => {
 
   return (
     <>
-      <Link to="/"> Go back</Link>
-      <h1>Details Page</h1>
-      <hr />
-      {
-        isPoemLoading ? <Loading /> : (
-          <div>
-            <h3>{poem.title}</h3>
-            <h5>{poem.author}</h5>
-            <h6>{poem.lineCount}</h6>
-            <div>
-              {
-              poem.lines && poem.lines.map((p) => (p === '' ? '---' : <pre key={uniqid()}>{p}</pre>))
-            }
+      <div className="poetry-container">
+        {
+          isPoemLoading ? <Loading /> : (
+            <div className="poetry-card">
+              <div className="poetry-card-header">
+                <Link to="/">
+                  <HomeIcon color="primary" />
+                </Link>
+                <h2>{poem.title}</h2>
+                <h4>
+                  - by
+                  {' '}
+                  {poem.author}
+                </h4>
+                <p>
+                  Length:
+                  {' '}
+                  {poem.lineCount}
+                  {' '}
+                  Lines
+                </p>
+              </div>
+              <div className="poetry-card-body">
+                {
+                  poem.lines && poem.lines.map((p) => (p === '' ? <p className="empty-line" /> : <pre key={uniqid()}>{p}</pre>))
+                }
+              </div>
+              <div />
             </div>
-          </div>
-        )
-      }
+          )
+        }
+      </div>
 
       <hr />
       {

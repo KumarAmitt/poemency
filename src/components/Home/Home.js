@@ -46,7 +46,7 @@ const Home = () => {
                     <div className="card-footer">
                       <Link to={`/poetry/${p.author}/${p.title}`} className="link">Read Poetry</Link>
                       <p className="lineCount">
-                        Lines Count:
+                        Lines:
                         {p.linecount}
                       </p>
                     </div>

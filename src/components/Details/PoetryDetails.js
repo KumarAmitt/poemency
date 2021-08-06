@@ -9,6 +9,7 @@ import { loadPoetryByAuthor, getPoetryHub, getIsSameAuthor } from '../../store/s
 import Loading from '../utilityComponent/Loading';
 import Error from '../utilityComponent/Error';
 import './PoetryDetails.css';
+import '../sharedCSS/card.css';
 
 const PoetryDetails = ({ match }) => {
   const { params: { title, author } } = match;
@@ -44,7 +45,7 @@ const PoetryDetails = ({ match }) => {
             <div className="poetry-card">
               <div className="poetry-card-header">
                 <Link to="/">
-                  <HomeIcon color="primary" />
+                  <HomeIcon className="homeIcon" />
                 </Link>
                 <h2>{poem.title}</h2>
                 <h4>
@@ -62,7 +63,7 @@ const PoetryDetails = ({ match }) => {
               </div>
               <div className="poetry-card-body">
                 {
-                  poem.lines && poem.lines.map((p) => (p === '' ? <p className="empty-line" /> : <pre key={uniqid()}>{p}</pre>))
+                  poem.lines && poem.lines.map((p) => (p === '' ? <p className="empty-line" key={uniqid()} /> : <pre key={uniqid()}>{p}</pre>))
                 }
               </div>
               <div />
@@ -70,23 +71,30 @@ const PoetryDetails = ({ match }) => {
           )
         }
       </div>
-
-      <hr />
-      {
-        isSameAuthor ? <h2>From the same Composer</h2> : <h2>Search suggestions</h2>
-      }
-      {
-       feat.map((f) => (
-         <div key={uniqid()}>
-           <p>{f.title}</p>
-           <p>{f.author}</p>
-           <p>{f.linecount}</p>
-           <Link to={`/poetry/${f.author}/${f.title}`} onClick={() => renderPoetry(f)}>Details</Link>
-           <hr />
-         </div>
-       ))
-       }
-
+      <div className="subheading">
+        {
+          isSameAuthor ? <h2>From the same Composer</h2> : <h2>Search suggestions</h2>
+        }
+      </div>
+      <div className="suggestions">
+        {
+          feat.map((f) => (
+            <div key={uniqid()} className="card">
+              <div className="card-body">
+                <p>{f.author}</p>
+                <h3>{f.title}</h3>
+              </div>
+              <div className="card-footer">
+                <Link to={`/poetry/${f.author}/${f.title}`} className="link" onClick={() => renderPoetry(f)}>Read</Link>
+                <p className="lineCount">
+                  Lines:
+                  {f.linecount}
+                </p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
     </>
   );
 };

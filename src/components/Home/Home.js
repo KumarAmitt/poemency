@@ -9,6 +9,7 @@ import Filter from './Sidebar/Filter';
 import Loading from '../utilityComponent/Loading';
 import Error from '../utilityComponent/Error';
 import '../sharedCSS/card.css';
+import './Home.css';
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -36,8 +37,10 @@ const Home = () => {
             isPoetriesLoading ? <Loading /> : (
               poetries.map((p) => (
                 <div key={uniqid()} className="card">
-                  <p>{p.author}</p>
-                  <h3>{p.title.length > 50 ? `${p.title.substr(0, 46)}...` : p.title}</h3>
+                  <div className="card-body">
+                    <p>{p.author}</p>
+                    <h3>{p.title.length > 77 ? `${p.title.substr(0, 73)}...` : p.title}</h3>
+                  </div>
                   <div className="card-footer">
                     <Link to={`/poetry/${p.author}/${p.title}`} className="link">Read Poetry</Link>
                     <p className="lineCount">

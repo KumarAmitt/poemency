@@ -1,0 +1,4 @@
+.filter,
+.filter > * + * {
+    margin-top: 2em;
+}

@@ -2,16 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import FilterTitle from './FilterTitle';
 import FilterAuthor from './FilterAuthor';
+import './Filter.css';
 
 const Filter = ({ filterAuthor }) => (
-  <>
-    <h2>Filter</h2>
+  <div className="filter">
     <FilterTitle />
-    <br />
-    <br />
     <FilterAuthor filterAuthor={filterAuthor} />
-    <hr />
-  </>
+  </div>
 );
 Filter.propTypes = {
   filterAuthor: PropTypes.func.isRequired,

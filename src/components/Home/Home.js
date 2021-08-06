@@ -8,8 +8,8 @@ import {
 import Filter from './Sidebar/Filter';
 import Loading from '../utilityComponent/Loading';
 import Error from '../utilityComponent/Error';
-import '../sharedCSS/card.css';
-import './Home.css';
+import '../stylesheets/shared/card.css';
+import './style/Home.css';
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -29,7 +29,6 @@ const Home = () => {
     return <Error />;
   }
 
-  console.log(isPoetriesLoading);
   return (
     <>
       <div className="home">
@@ -47,6 +46,7 @@ const Home = () => {
                       <Link to={`/poetry/${p.author}/${p.title}`} className="link">Read Poetry</Link>
                       <p className="lineCount">
                         Lines:
+                        {' '}
                         {p.linecount}
                       </p>
                     </div>

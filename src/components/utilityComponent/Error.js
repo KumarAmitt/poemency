@@ -1,6 +1,6 @@
 import React from 'react';
 import ArrowBackRoundedIcon from '@material-ui/icons/ArrowBackRounded';
-import './Error.css';
+import './style/Error.css';
 
 const Error = () => (
   <div className="error">

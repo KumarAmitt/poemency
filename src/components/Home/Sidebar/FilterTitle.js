@@ -5,9 +5,9 @@ import uniqid from 'uniqid';
 import { Link } from 'react-router-dom';
 import { getTitles, isTitleLoading, loadTitles } from '../../../store/slicers/title';
 import Loading from '../../utilityComponent/Loading';
-import { getAbsPoetry, loadPoetryByAbsTitle } from '../../../store/slicers/poetryHub';
-import '../../sharedCSS/card.css';
-import './FilterTitle.css';
+import { getAbsPoetry, loadPoetryByAbsTitle, loadPoetryHub } from '../../../store/slicers/poetryHub';
+import '../../stylesheets/shared/card.css';
+import './style/FilterTitle.css';
 
 const FilterTitle = () => {
   const dispatch = useDispatch();
@@ -22,6 +22,7 @@ const FilterTitle = () => {
 
   const handleChange = (t) => {
     dispatch(loadPoetryByAbsTitle(t));
+    dispatch(loadPoetryHub());
   };
 
   return (

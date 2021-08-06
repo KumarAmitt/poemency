@@ -8,8 +8,8 @@ import { loadUniqPoetry, getUniqPoetry, istUniqPoetryLoading } from '../../store
 import { loadPoetryByAuthor, getPoetryHub, getIsSameAuthor } from '../../store/slicers/poetryHub';
 import Loading from '../utilityComponent/Loading';
 import Error from '../utilityComponent/Error';
-import './PoetryDetails.css';
-import '../sharedCSS/card.css';
+import './style/PoetryDetails.css';
+import '../stylesheets/shared/card.css';
 
 const PoetryDetails = ({ match }) => {
   const { params: { title, author } } = match;

@@ -32,7 +32,6 @@
   color: #743ad5;
 }
 
-
 .poetry-card-body {
   margin-top: 2em;
   overflow: auto;
@@ -51,7 +50,6 @@
 }
 
 @media (min-width: 768px) {
-
   .poetry-card {
     display: flex;
     justify-content: space-between;
@@ -83,7 +81,7 @@
   }
 
   .poetry-card-body::-webkit-scrollbar {
-    width: 5px ;
+    width: 5px;
     height: 5px;
   }
 
@@ -108,7 +106,6 @@
 }
 
 @media (min-width: 1080px) {
-
   .poetry-card-header {
     flex: 2;
   }
@@ -120,6 +117,7 @@
   .poetry-card-body {
     flex: 4;
   }
+
   .suggestions {
     max-width: 1200px;
     margin: 2em auto;

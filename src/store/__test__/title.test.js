@@ -1,7 +1,7 @@
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 import configureAppStore from '../configureStore';
-import { getTitles, loadTitles } from '../slicers/title';
+import { getTitles, isTitleLoading, loadTitles } from '../slicers/title';
 
 describe('titleSlice', () => {
   let fakeAxios;
@@ -69,13 +69,22 @@ describe('titleSlice', () => {
   });
 
   describe('selectors', () => {
-    it('getTitleSelector should return all titles', () => {
+    it('getTitle Selector should return all titles', () => {
       const state = createState();
       state.entities.title.titles = ['title 1', 'title 2'];
 
       const result = getTitles(state);
 
       expect(result).toHaveLength(2);
+    });
+
+    it('isTitleLoading selector return false if loading state is false', () => {
+      const state = createState();
+      state.entities.title.loading = false;
+
+      const result = isTitleLoading(state);
+
+      expect(result).toBeFalsy();
     });
   });
 });

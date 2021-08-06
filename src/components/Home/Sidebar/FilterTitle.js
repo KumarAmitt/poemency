@@ -7,6 +7,7 @@ import { getTitles, isTitleLoading, loadTitles } from '../../../store/slicers/ti
 import Loading from '../../utilityComponent/Loading';
 import { getAbsPoetry, loadPoetryByAbsTitle } from '../../../store/slicers/poetryHub';
 import '../../sharedCSS/card.css';
+import './FilterTitle.css';
 
 const FilterTitle = () => {
   const dispatch = useDispatch();
@@ -25,7 +26,7 @@ const FilterTitle = () => {
 
   return (
     <>
-      <div className="card">
+      <div className="card title-filter">
         {
           isTitlesLoading ? <Loading /> : (
             <div>

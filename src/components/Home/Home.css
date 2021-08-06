@@ -1,6 +1,18 @@
 @media (min-width: 768px) {
     main{
+      margin-top: 1em;
       display: grid;
       grid-template-columns: 1fr 1fr;
     }
+}
+
+@media (min-width: 1080px) {
+  .home {
+    display: flex;
+  }
+
+  main{
+    max-width: 1000px;
+    margin: 1em auto;
+  }
 }

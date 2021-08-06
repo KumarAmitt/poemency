@@ -26,7 +26,7 @@ const FilterAuthor = ({ filterAuthor }) => {
   };
 
   return (
-    <div className="card">
+    <div className="card author-filter">
       {
         isAuthorLoaded ? <Loading /> : (
           <div>

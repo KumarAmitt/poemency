@@ -6,8 +6,8 @@ import './Filter.css';
 
 const Filter = ({ filterAuthor }) => (
   <div className="filter">
-    <FilterTitle />
     <FilterAuthor filterAuthor={filterAuthor} />
+    <FilterTitle />
   </div>
 );
 Filter.propTypes = {

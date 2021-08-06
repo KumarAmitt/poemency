@@ -19,3 +19,9 @@
     background-color: #303e92;
 
 }
+
+@media (min-width: 1080px) {
+    .author-filter {
+        border: none;
+    }
+}

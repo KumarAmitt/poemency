@@ -9,7 +9,7 @@ import { loadPoetryByAuthor, getPoetryHub, getIsSameAuthor } from '../../store/s
 import Loading from '../utilityComponent/Loading';
 import Error from '../utilityComponent/Error';
 import './style/PoetryDetails.css';
-import '../stylesheets/shared/card.css';
+import '../../stylesheets/shared/card.css';
 
 const PoetryDetails = ({ match }) => {
   const { params: { title, author } } = match;

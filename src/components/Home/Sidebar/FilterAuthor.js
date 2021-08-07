@@ -8,7 +8,7 @@ import {
 } from '../../../store/slicers/author';
 import { loadPoetryByAuthor } from '../../../store/slicers/poetryHub';
 import Loading from '../../utilityComponent/Loading';
-import '../../stylesheets/shared/card.css';
+import '../../../stylesheets/shared/card.css';
 import './style/FilterAuthor.css';
 
 const FilterAuthor = ({ filterAuthor }) => {

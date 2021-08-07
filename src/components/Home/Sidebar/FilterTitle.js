@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { getTitles, isTitleLoading, loadTitles } from '../../../store/slicers/title';
 import Loading from '../../utilityComponent/Loading';
 import { getAbsPoetry, loadPoetryByAbsTitle, loadPoetryHub } from '../../../store/slicers/poetryHub';
-import '../../stylesheets/shared/card.css';
+import '../../../stylesheets/shared/card.css';
 import './style/FilterTitle.css';
 
 const FilterTitle = () => {

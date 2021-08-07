@@ -14,10 +14,3 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
-
-table,
-thead,
-th,
-td {
-  border: 1px solid mediumvioletred;
-}

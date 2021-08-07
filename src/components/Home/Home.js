@@ -8,7 +8,7 @@ import {
 import Filter from './Sidebar/Filter';
 import Loading from '../utilityComponent/Loading';
 import Error from '../utilityComponent/Error';
-import '../stylesheets/shared/card.css';
+import '../../stylesheets/shared/card.css';
 import './style/Home.css';
 
 const Home = () => {

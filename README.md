@@ -83,6 +83,9 @@ Contributions, issues, and feature requests are welcome!
 
 Feel free to check the [issues page](https://github.com/KumarAmitt/poemency/issues).
 
+### Credits
+API - [thundercomb/poetrydb](https://github.com/thundercomb/poetrydb)
+
 ### Show your support
 
 Give a ⭐️ if you like this project!

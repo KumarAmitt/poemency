@@ -60,7 +60,7 @@ Refer the following documentations to download the Text Editor of your choice:
 - Navigate to the directory `poemency` in your File Explorer.
 
 - Run `npm install` to install dependencies.
-
+- Run`git checkout poetry` to switch to the feature branch.
 - Run `npm start` to run the app in browser. Recommended: Chrome/Firefox
 
 - If you wish to play around the codes, navigate to this Repository in the Text Editor of your choice.

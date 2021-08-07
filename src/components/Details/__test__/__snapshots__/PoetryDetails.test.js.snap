@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PoetryDetails should match snapshot of PoetryDetails 1`] = `
+Array [
+  <div
+    className="poetry-container"
+  >
+    <div
+      className="poetry-card"
+    >
+      <div
+        className="poetry-card-header"
+      >
+        <a
+          href="/"
+          onClick={[Function]}
+        >
+          <svg
+            aria-hidden={true}
+            className="MuiSvgIcon-root homeIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"
+            />
+          </svg>
+        </a>
+        <h2 />
+        <h4>
+          - by
+           
+        </h4>
+        <p>
+          Length:
+           
+           
+          Lines
+        </p>
+      </div>
+      <div
+        className="poetry-card-body"
+      />
+      <div />
+    </div>
+  </div>,
+  <div
+    className="subheading"
+  >
+    <h2>
+      From the same Composer
+    </h2>
+  </div>,
+  <div
+    className="suggestions"
+  />,
+]
+`;

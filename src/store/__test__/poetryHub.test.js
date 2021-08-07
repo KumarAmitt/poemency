@@ -2,6 +2,8 @@ import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 import configureAppStore from '../configureStore';
 import {
+  getAbsPoetry, getIsSameAuthor,
+  getPoetryHub, isPoetryHubLoading,
   loadPoetryByAbsTitle, loadPoetryByAuthor, loadPoetryByTitle, loadPoetryHub,
 } from '../slicers/poetryHub';
 
@@ -16,15 +18,15 @@ describe('poetryHub', () => {
 
   const poetryHubSlice = () => store.getState().entities.poetryHub.poems;
 
-  // const createState = () => ({
-  //   entities: {
-  //     poetryHub: {
-  //       poems: [],
-  //       absPoems: [],
-  //       loading: false,
-  //     },
-  //   },
-  // });
+  const createState = () => ({
+    entities: {
+      poetryHub: {
+        poems: [],
+        absPoems: [],
+        loading: false,
+      },
+    },
+  });
 
   describe('loading PoetryHub', () => {
     describe('loadPoetryHub', () => {
@@ -103,6 +105,87 @@ describe('poetryHub', () => {
         const absPoem = store.getState().entities.poetryHub.absPoems;
 
         expect(absPoem).toHaveLength(0);
+      });
+    });
+
+    describe('loading indicators', () => {
+      it('should be true while fetching poetryHub details', () => {
+        fakeAxios.onGet('/random/20/title,author,linecount').reply(() => {
+          expect(store.getState().entities.poetryHub.loading).toBe(true);
+          return [200, [{ title: 't1' }]];
+        });
+        store.dispatch(loadPoetryHub());
+      });
+
+      it('should be false after the poetries are fetched into the poetruHub', async () => {
+        fakeAxios.onGet('/random/20/title,author,linecount').reply(200, [{ title: 't1' }]);
+
+        await store.dispatch(loadPoetryHub());
+
+        expect(store.getState().entities.poetryHub.loading).toBe(false);
+      });
+
+      it('should be false if server returns error', async () => {
+        fakeAxios.onGet('/random/20/title,author,linecount').reply(500);
+
+        await store.dispatch(loadPoetryHub());
+
+        expect(store.getState().entities.poetryHub.loading).toBe(false);
+      });
+    });
+  });
+
+  describe('selectors', () => {
+    describe('getPoetryHub selector', () => {
+      it('should return poetry info of requested poetries', () => {
+        const state = createState();
+        state.entities.poetryHub.poems = [{}, {}, {}];
+
+        const result = getPoetryHub(state);
+
+        expect(result).toHaveLength(3);
+      });
+    });
+
+    describe('getAbsPoetry selector', () => {
+      it('should return information poetry with an absolute title', () => {
+        const state = createState();
+        state.entities.poetryHub.absPoems = [{ title: 't1' }];
+
+        const result = getAbsPoetry(state);
+
+        expect(result[0].title).toBe('t1');
+      });
+    });
+
+    describe('isPoetryHubLoading selector', () => {
+      it('should return status of poetryHub loading', () => {
+        const state = createState();
+        state.entities.poetryHub.loading = true;
+
+        const result = isPoetryHubLoading(state);
+
+        expect(result).toBeTruthy();
+      });
+    });
+
+    describe('getIsSameAuthor selector', () => {
+      it('should return true if author of all the poetries are same', () => {
+        const state = createState();
+        state.entities.poetryHub.poems = [{ author: 'a1' }, { author: 'a1' }];
+
+        const result = getIsSameAuthor('a1')(state);
+
+        expect(result).toBeTruthy();
+      });
+
+      it('should return false if author of all the poetries are not same', () => {
+        const state = createState();
+        state.entities.poetryHub.poems = [{ author: 'a1' }, { author: 'a2' }];
+
+        const result = getIsSameAuthor('a1')(state);
+
+        expect(result).toBeFalsy();
       });
     });
   });

@@ -9,7 +9,7 @@ import PoetryDetails from '../PoetryDetails';
 const store = configureAppStore();
 
 describe('PoetryDetails', () => {
-  test('match snapshot of PoetrtDetails', () => {
+  test('should match snapshot of PoetryDetails', () => {
     const tree = renderer.create(
       <Provider store={store}>
         <BrowserRouter>

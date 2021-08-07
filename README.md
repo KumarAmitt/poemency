@@ -20,7 +20,7 @@ At Poemency a user can:
 
 ## Live Demo
 
-[View Live]()
+[View Live](https://poemency.netlify.app/)
 
 ## Built With 🛠
 

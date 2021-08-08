@@ -33,7 +33,7 @@ export default uniqPoetrySlice.reducer;
 // ACTION CREATOR
 
 export const loadUniqPoetry = (author, title) => apiCallBegan({
-  url: `/author,title/${author};${title.replace(/ \(excerpt\)/, '')}`,
+  url: `/author,title/${author};${title.split('(')[0]}`,
   onStart: poemRequested.type,
   onSuccess: poemReceived.type,
   onError: poemRequestFailed.type,

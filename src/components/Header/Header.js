@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -9,6 +10,7 @@ import { alpha, makeStyles } from '@material-ui/core/styles';
 import SearchIcon from '@material-ui/icons/Search';
 
 import { loadPoetryByTitle } from '../../store/slicers/poetryHub';
+import './style/Header.css';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -83,7 +85,7 @@ const Header = () => {
       <AppBar position="static">
         <Toolbar>
           <Typography className={classes.title} variant="h4" noWrap>
-            Poemency
+            <Link to="/" className="app-title">Poemency</Link>
           </Typography>
           <div className={classes.search}>
             <div className={classes.searchIcon}>

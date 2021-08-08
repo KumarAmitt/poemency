@@ -6,8 +6,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import HomeIcon from '@material-ui/icons/Home';
 import { loadUniqPoetry, getUniqPoetry, istUniqPoetryLoading } from '../../store/slicers/uniqPoetry';
 import { loadPoetryByAuthor, getPoetryHub, getIsSameAuthor } from '../../store/slicers/poetryHub';
-import Loading from '../utilityComponent/Loading';
-import Error from '../utilityComponent/Error';
+import Loading from '../../components/utilityComponent/Loading';
+import Error from '../../components/utilityComponent/Error';
 import './style/PoetryDetails.css';
 import '../../stylesheets/shared/card.css';
 

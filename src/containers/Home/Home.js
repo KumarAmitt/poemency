@@ -6,8 +6,8 @@ import {
   loadPoetryHub, loadPoetryByAuthor, getPoetryHub, isPoetryHubLoading,
 } from '../../store/slicers/poetryHub';
 import Filter from './Sidebar/Filter';
-import Loading from '../utilityComponent/Loading';
-import Error from '../utilityComponent/Error';
+import Loading from '../../components/utilityComponent/Loading';
+import Error from '../../components/utilityComponent/Error';
 import '../../stylesheets/shared/card.css';
 import './style/Home.css';
 import {

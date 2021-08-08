@@ -4,9 +4,7 @@ import FilterTitle from './FilterTitle';
 import FilterAuthor from './FilterAuthor';
 import './style/Filter.css';
 
-const Filter = ({
-  filterAuthor, authorInfo,
-}) => (
+const Filter = ({ filterAuthor, authorInfo }) => (
   <div className="filter">
     <FilterAuthor
       filterAuthor={filterAuthor}

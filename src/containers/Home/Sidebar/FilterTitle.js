@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import uniqid from 'uniqid';
 import { Link } from 'react-router-dom';
 import { getTitles, isTitleLoading, loadTitles } from '../../../store/slicers/title';
-import Loading from '../../utilityComponent/Loading';
+import Loading from '../../../components/utilityComponent/Loading';
 import { getAbsPoetry, loadPoetryByAbsTitle, loadPoetryHub } from '../../../store/slicers/poetryHub';
 import '../../../stylesheets/shared/card.css';
 import './style/FilterTitle.css';

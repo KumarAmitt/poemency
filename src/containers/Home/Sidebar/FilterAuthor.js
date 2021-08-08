@@ -5,7 +5,7 @@ import uniqid from 'uniqid';
 import { useDispatch } from 'react-redux';
 
 import { loadPoetryByAuthor } from '../../../store/slicers/poetryHub';
-import Loading from '../../utilityComponent/Loading';
+import Loading from '../../../components/utilityComponent/Loading';
 import '../../../stylesheets/shared/card.css';
 import './style/FilterAuthor.css';
 

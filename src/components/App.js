@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Header from './Header/Header';
-import Home from './Home/Home';
-import PoetryDetails from './Details/PoetryDetails';
+import Home from '../containers/Home/Home';
+import PoetryDetails from '../containers/Details/PoetryDetails';
 import Footer from './Footer/Footer';
 
 function App() {

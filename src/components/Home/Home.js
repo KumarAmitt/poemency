@@ -10,12 +10,22 @@ import Loading from '../utilityComponent/Loading';
 import Error from '../utilityComponent/Error';
 import '../../stylesheets/shared/card.css';
 import './style/Home.css';
+import {
+  getAuthors, getRandomAuthors, isAuthorLoading, loadAuthors,
+} from '../../store/slicers/author';
 
 const Home = () => {
   const dispatch = useDispatch();
 
+  const authorInfo = {
+    authors: useSelector(getAuthors),
+    randomAuthors: useSelector(getRandomAuthors),
+    isAuthorLoaded: useSelector(isAuthorLoading),
+  };
+
   useEffect(() => {
     dispatch(loadPoetryHub());
+    dispatch(loadAuthors());
   }, []);
 
   const poetries = useSelector(getPoetryHub);
@@ -58,7 +68,10 @@ const Home = () => {
 
         </main>
 
-        <Filter filterAuthor={handleAuthorChange} />
+        <Filter
+          filterAuthor={handleAuthorChange}
+          authorInfo={authorInfo}
+        />
       </div>
     </>
   );

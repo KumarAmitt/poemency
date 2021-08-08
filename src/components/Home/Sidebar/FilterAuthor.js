@@ -1,25 +1,19 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import Select from 'react-select';
 import PropTypes from 'prop-types';
 import uniqid from 'uniqid';
-import { useDispatch, useSelector } from 'react-redux';
-import {
-  getAuthors, getRandomAuthors, isAuthorLoading, loadAuthors,
-} from '../../../store/slicers/author';
+import { useDispatch } from 'react-redux';
+
 import { loadPoetryByAuthor } from '../../../store/slicers/poetryHub';
 import Loading from '../../utilityComponent/Loading';
 import '../../../stylesheets/shared/card.css';
 import './style/FilterAuthor.css';
 
-const FilterAuthor = ({ filterAuthor }) => {
+const FilterAuthor = ({
+  filterAuthor, authorInfo,
+}) => {
+  const { authors, randomAuthors, isAuthorLoaded } = authorInfo;
   const dispatch = useDispatch();
-  const authors = useSelector(getAuthors);
-  const randomAuthors = useSelector(getRandomAuthors);
-  const isAuthorLoaded = useSelector(isAuthorLoading);
-
-  useEffect(() => {
-    dispatch(loadAuthors());
-  }, []);
 
   const handleClick = (author) => {
     dispatch(loadPoetryByAuthor(author));
@@ -58,6 +52,7 @@ const FilterAuthor = ({ filterAuthor }) => {
 
 FilterAuthor.propTypes = {
   filterAuthor: PropTypes.func.isRequired,
+  authorInfo: PropTypes.instanceOf(Object).isRequired,
 };
 
 export default FilterAuthor;

@@ -13,7 +13,6 @@ const FilterTitle = () => {
   const dispatch = useDispatch();
   const titles = useSelector(getTitles);
   const isTitlesLoading = useSelector(isTitleLoading);
-
   const poetry = useSelector(getAbsPoetry);
 
   useEffect(() => {

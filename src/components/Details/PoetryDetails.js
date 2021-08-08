@@ -28,10 +28,10 @@ const PoetryDetails = ({ match }) => {
     dispatch(loadPoetryByAuthor(author));
   }, []);
 
-  function renderPoetry(f) {
+  const renderPoetry = (f) => {
     window.scrollTo(0, 0);
     dispatch(loadUniqPoetry(f.author, f.title));
-  }
+  };
 
   if (feat.status === 404) {
     return <Error />;

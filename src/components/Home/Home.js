@@ -21,9 +21,9 @@ const Home = () => {
   const poetries = useSelector(getPoetryHub);
   const isPoetriesLoading = useSelector(isPoetryHubLoading);
 
-  function handleAuthorChange(author) {
+  const handleAuthorChange = (author) => {
     dispatch(loadPoetryByAuthor(author));
-  }
+  };
 
   if (poetries.status === 404) {
     return <Error />;

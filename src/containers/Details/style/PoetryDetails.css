@@ -1,0 +1,127 @@
+.poetry-container {
+  margin: 0.5em;
+}
+
+.poetry-card {
+  border: 3px solid;
+  padding: 0.5em;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(to right top, #743ad5, #d53a9d);
+}
+
+.poetry-card-header {
+  border-bottom: 1px solid #d53a9d;
+}
+
+.poetry-card-header h2 {
+  text-align: center;
+  margin-top: 0;
+}
+
+.poetry-card-header h4 {
+  text-align: right;
+  margin-right: 1em;
+  font-style: oblique;
+}
+
+.homeIcon {
+  color: #d53a9d;
+}
+
+.homeIcon:hover {
+  color: #743ad5;
+}
+
+.poetry-card-body {
+  margin-top: 2em;
+  overflow: auto;
+  text-align: center;
+  font-size: 1.1em;
+}
+
+.empty-line {
+  height: 1em;
+}
+
+.subheading {
+  margin-top: 2em;
+  text-align: center;
+  color: #d53a9d;
+}
+
+@media (min-width: 768px) {
+  .poetry-card {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .poetry-card-header {
+    border-bottom: none;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-right: 2px solid #d53a9d;
+  }
+
+  .homeIcon {
+    transform: scale(1.5);
+  }
+
+  .poetry-card-header > h2 {
+    margin-top: 2em;
+  }
+
+  .poetry-card-body {
+    flex: 2;
+    max-height: 86vh;
+    overflow: auto;
+    margin-top: 0;
+  }
+
+  .poetry-card-body::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+
+  .poetry-card-body::-webkit-scrollbar-thumb {
+    background-color: #d53a9d;
+  }
+
+  .suggestions {
+    display: flex;
+    justify-content: center;
+    margin: 2em 1em;
+    overflow: auto;
+    scrollbar-width: none;
+  }
+
+  .suggestions::-webkit-scrollbar {
+    display: none;
+  }
+
+  .suggestions > .card {
+    min-width: 14em;
+  }
+}
+
+@media (min-width: 1080px) {
+  .poetry-card-header {
+    flex: 2;
+    padding: 0.5em;
+  }
+
+  .poetry-card-header h2 {
+    font-size: 2.2rem;
+  }
+
+  .poetry-card-body {
+    flex: 4;
+  }
+
+  .suggestions {
+    max-width: 1200px;
+    margin: 2em auto;
+  }
+}

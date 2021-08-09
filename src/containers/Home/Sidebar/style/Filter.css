@@ -1,0 +1,18 @@
+.filter,
+.filter > * + * {
+  margin-top: 2em;
+}
+
+@media (min-width: 768px) {
+  .filter {
+    max-width: 1000px;
+    margin: 2em auto;
+  }
+}
+
+@media (min-width: 1080px) {
+  .filter {
+    flex: 1;
+    max-width: 400px;
+  }
+}

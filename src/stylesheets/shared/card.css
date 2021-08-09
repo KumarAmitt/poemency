@@ -1,0 +1,35 @@
+.card {
+  border: 3px solid;
+  margin: 0.5em;
+  padding: 0.5em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(to left bottom, #743ad5, #d53a9d);
+}
+
+.card-footer {
+  border-top: 1px solid cornflowerblue;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-footer .link {
+  padding: 0.5em 1em;
+  text-decoration: none;
+  font-weight: bold;
+  color: #fff;
+  text-transform: uppercase;
+  background-image: linear-gradient(to right, #895cf2, #ffabf4);
+}
+
+.card-footer .link:hover {
+  background-image: linear-gradient(to right, #ffabf4, #895cf2);
+}
+
+.lineCount {
+  font-size: 0.9rem;
+  font-weight: 700;
+}

@@ -22,6 +22,10 @@ At Poemency a user can:
 
 [View Live](https://poemency.netlify.app/)
 
+## A Quick Walkthrough of Application
+
+[View Presentation](https://www.loom.com/share/19c6df32cd1f4e0a9bf9b5a8c46c7080?sharedAppSource=personal_library)
+
 ## Built With 🛠
 
 ```
